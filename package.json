@@ -4,8 +4,11 @@
   "description": "this is MERN stack project init\"",
   "main": "server.js",
   "scripts": {
+    "client-install":"npm install --prefix client",
     "start": "node server.js",
-    "server": "nodemon server.js"
+    "server": "nodemon server.js",
+    "client": "npm start --prefix client",
+    "dev":"concurrently \"npm run sever\" \"npm run clint\""
   },
   "author": "omar mohummed al gamri",
   "license": "ISC",
