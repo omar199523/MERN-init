@@ -4,11 +4,12 @@ const bodyParser = require('body-parser');
 const path = require('path')
 
 const items =require('./route/api/items')
+const users =require('./route/api/users')
 const app = express();
 
 
 // bodyparser middleware 
-app.use(bodyParser.json()); 
+app.use(express.json()); 
 
 
 // Databease config 
@@ -25,7 +26,7 @@ connection.on('connected', () => {
 });
 // use route
 app.use('/api/items',items);
-console.log("enveroment: ", process.env.NODE_ENV)
+app.use('/api/users',users);
 //serve static assets if in production
 if(process.env.NODE_ENV ==='production'){
     app.use(express.static(path.join(__dirname, 'client','build')));
