@@ -12,14 +12,14 @@ app.use(bodyParser.json());
 
 // Databease config 
 const mongoURI = require('./config/keys').mongoURI
-mongoose.connect(mongoURI ,{useNewUrlParser:true,useUnifiedTopology:true})
-.then(()=>console.log("MongooDB Conected..."))
-.catch((err => console.log(err)))
+mongoose.connect(process.env.MONGODB_URI || mongoURI ,{useNewUrlParser:true,useUnifiedTopology:true})
 
-// const { connection } = mongoose;
-// connection.once('open', () => {
-// 	console.log('mongoDB database connection established successfully');
-// });
+
+
+const { connection } = mongoose;
+connection.on('connected', () => {
+	console.log('mongoDB database connection established successfully');
+});
 // use route
 app.use('/api/items',items);
 
