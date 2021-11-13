@@ -10,8 +10,11 @@ const app = express();
 // bodyparser middleware 
 app.use(bodyParser.json()); 
 
+
 // Databease config 
 const mongoURI = require('./config/keys').mongoURI
+
+console.log(process.env.MONGODB_URI)
 mongoose.connect(process.env.MONGODB_URI || mongoURI ,{useNewUrlParser:true,useUnifiedTopology:true})
 
 
@@ -24,11 +27,8 @@ connection.on('connected', () => {
 app.use('/api/items',items);
 
 //servestatic assets if in production
-if(process.env.NODE_ENV ==="production"){
+if(process.env.NODE_ENV ==='peoduction'){
     app.use(express.static('client/build'))
-    // app.get('*',(req,res)=>{
-    //     res.sendFile(path.resolve(__dirname,'client','build','index.html'))
-    // })
 }
 
 const port = process.env.PORT || 5000;
