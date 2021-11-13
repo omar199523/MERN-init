@@ -29,6 +29,9 @@ app.use('/api/items',items);
 //servestatic assets if in production
 if(process.env.NODE_ENV ==='peoduction'){
     app.use(express.static('client/build'))
+    app.get('*',(req,res)=>{
+        res.sendFile(path(__dirname,"client","build","index.html"))
+    })
 }
 
 const port = process.env.PORT || 5000;
