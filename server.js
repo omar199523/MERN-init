@@ -27,7 +27,7 @@ connection.on('connected', () => {
 app.use('/api/items',items);
 console.log("enveroment: ", process.env.NODE_ENV)
 //serve static assets if in production
-if(process.env.NODE_ENV ==='peoduction'){
+if(process.env.NODE_ENV ==='production'){
     app.use(express.static(path.join(__dirname, 'client','build')));
 
     app.get('*', function (req, res) {
