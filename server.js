@@ -14,8 +14,8 @@ app.use(bodyParser.json());
 // Databease config 
 const mongoURI = require('./config/keys').mongoURI
 
-// process.env.MONGODB_URI ||
-mongoose.connect( mongoURI ,{useNewUrlParser:true,useUnifiedTopology:true})
+
+mongoose.connect(  process.env.MONGODB_URI ||mongoURI ,{useNewUrlParser:true,useUnifiedTopology:true})
 
 
 
