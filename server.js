@@ -14,7 +14,8 @@ app.use(bodyParser.json());
 // Databease config 
 const mongoURI = require('./config/keys').mongoURI
 
-console.log(process.env.MONGODB_URI || mongoURI )
+console.log("process.env.MONGODB_URI:" , process.env.MONGODB_URI )
+console.log("mongoURI: ", mongoURI)
 mongoose.connect(process.env.MONGODB_URI || mongoURI ,{useNewUrlParser:true,useUnifiedTopology:true})
 
 
@@ -30,7 +31,7 @@ app.use('/api/items',items);
 if(process.env.NODE_ENV ==='peoduction'){
     app.use(express.static('client/build'))
     app.get('*',(req,res)=>{
-        res.sendFile(path(__dirname,"client","build","index.html"))
+        res.sendFile(path(__dirname,'client/build/index.html'))
     })
 }
 
