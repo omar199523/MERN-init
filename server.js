@@ -2,9 +2,11 @@ const express = require('express');
 const mongoose = require('mongoose');
 const bodyParser = require('body-parser');
 const path = require('path')
+const config = require('config')
 
 const items =require('./route/api/items')
 const users =require('./route/api/users')
+const auth =require('./route/api/auth')
 const app = express();
 
 
@@ -16,7 +18,7 @@ app.use(express.json());
 
 
 // process.env.MONGODB_URI ||
-mongoose.connect( process.env.MONGODB_URI || require('./config/keys').mongoURI ,{useNewUrlParser:true,useUnifiedTopology:true})
+mongoose.connect( process.env.MONGODB_URI || config.get('mongoURI') ,{useNewUrlParser:true,useUnifiedTopology:true})
 
 
 
@@ -27,6 +29,7 @@ connection.on('connected', () => {
 // use route
 app.use('/api/items',items);
 app.use('/api/users',users);
+app.use('/api/auth',auth);
 //serve static assets if in production
 if(process.env.NODE_ENV ==='production'){
     app.use(express.static(path.join(__dirname, 'client','build')));

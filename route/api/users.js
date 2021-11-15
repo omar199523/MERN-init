@@ -1,23 +1,17 @@
 const express =require('express');
 const router = express.Router();
 const bcrypt = require('bcryptjs');
+const config = require('config');
+const jwt =require('jsonwebtoken')
 
 
 // users model
 const Users = require('../../models/user')
-//  @route get api/Users
-// @ desc Register new user
-// @access puplic
-router.get ('/',(req,res)=>{
-    Users.find()
-    .sort({date: -1})
-    .then((data)=>res.json(data))
-    .catch((err=>console.log(err)));
-})
+
 //  @route post api/Users
 // @ desc Register new user
 // @access puplic
-router.post ('/add',(req,res)=>{
+router.post ('/',(req,res)=>{
     const {name , email, password} = req.body;
     //  simple validation
     if(!name || !email || !password){
@@ -40,13 +34,23 @@ router.post ('/add',(req,res)=>{
             newUser.password = hash;
             newUser.save()
                 .then(user=>{
-                    res.json({
-                        user:{
-                            id:user.id,
-                            name:user.name,
-                            email:user.email
+                    jwt.sign(
+                        {id:user.id},
+                        config.get("jwtSecret"),
+                        {expiresIn :3600},
+                        (err,token)=>{
+                            if(err) throw err;
+                            res.json({
+                                token,
+                                user:{
+                                    id:user.id,
+                                    name:user.name,
+                                    email:user.email
+                                }
+                            })
+
                         }
-                    })
+                    )
                 })
         })
     })
