@@ -1,28 +1,19 @@
-import React,{useState} from 'react';
+import React,{useEffect} from 'react';
 import './App.css';
-import SerItem from './componants/SerItem';
 import {useDispatch} from 'react-redux';
-import { addItem } from './store/action';
+import Login from './componants/Login'
+import SignUp from './componants/SignUp'
+import {loadUser} from './store/action/authAction'
 export const App = () => {
     const dispatch = useDispatch()
-    const [data,setData] =useState({
-        name:""
-    })
-
-    const handleOnChange = (e)=>{
-        const {value,name} = e.target;
-
-        setData({...data,[name]:value})
-    }
+    useEffect(() => {
+        dispatch(loadUser())
+    }, [])
     return (
         <div>
-            <form onSubmit={(e)=>{
-                e.preventDefault()
-                dispatch(addItem(data))}}>
-                <input type="text" value={data.name} name="name" onChange={handleOnChange}/>
-                <button type="submit">add item</button>
-            </form>
-            <SerItem/>
+            <Login/>
+            <SignUp/>
+
         </div>
     )
 }
