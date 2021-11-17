@@ -1,6 +1,5 @@
-// import uuid from "uuid"
+
 import { GET_ITEM ,ADD_ITEM,DELET_ITEM, ITEM_LOADING} from '../action/types';
-import uuid from 'react-uuid';
 
 const  initialState ={
      items:[],
