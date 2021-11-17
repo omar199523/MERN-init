@@ -1,7 +1,7 @@
 import React ,{useState} from 'react'
 import "./style.css"
 
-import axios from 'axios';
+
 
 const Login = ()=> {
     const [loginData , setLoginData] = useState({
@@ -18,11 +18,7 @@ const Login = ()=> {
       };
       const handleOnSubmit=(e)=>{
         e.preventDefault();
-        console.log(loginData)
-    //     axios.post("",loginData)
-    //         .then((res)=>console.log(res))
-    //         .catch((err)=>console.log(err))
-    //   }
+            
       }
     return (
         <form onSubmit ={handleOnSubmit } className="login-form">
