@@ -28,7 +28,7 @@ connection.on('connected', () => {
 });
 // use route
 app.use('/api/items',items);
-app.use('/api/users',users);
+app.use('/api/user',users);
 app.use('/api/auth',auth);
 //serve static assets if in production
 if(process.env.NODE_ENV ==='production'){
