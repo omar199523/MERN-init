@@ -27,7 +27,7 @@ export const App = () => {
                         <Route path="/" exact element={<Home/>} />
                         <Route path="/login" element={<Login/>} />
                         <Route path="/signup" element={<SignUp/>} />
-                        <Route path="/MainForm" element={<MianForm/>} />
+                        <Route path="/MainForm" element={<MainForm/>} />
                         
                     </Routes>
                 </div>
