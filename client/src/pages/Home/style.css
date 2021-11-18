@@ -1,0 +1,29 @@
+.home-page {
+  min-height: 40vh;
+  display: flex;
+  justify-content: space-between;
+  align-items: stretch;
+}
+.text-cont {
+  flex: 2 2 400px;
+  margin-top: 25vh;
+  height: 28vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+}
+.text-cont .but-cont > button {
+  padding: 0.7em 1.5em;
+  margin-left: 1.5em;
+  font-size: 1rem;
+  border: 0;
+  border-radius: 0.5em;
+  background-color: #ddd;
+}
+.text-cont .but-cont > button:hover {
+  background-color: #02897a;
+  color: #fff;
+}
+.img-cont {
+  flex: 2 2 400px;
+}

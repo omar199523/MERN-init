@@ -1,0 +1,67 @@
+.main-form {
+  padding: 0px 15px 20px 15px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+.main-form fieldset {
+  display: flex;
+  flex-wrap: wrap;
+  padding: 15px 10px;
+  margin-top: 8px;
+  border: 1px solid rgb(109, 107, 107);
+  border-radius: 10px;
+}
+.main-form legend {
+  padding: 10px 15px;
+  background-color: #4b4a49;
+  color: #fff;
+  border-radius: 25px;
+  font-weight: 550;
+}
+.main-form fieldset > label {
+  flex: 1 1 220px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 3px;
+  font-weight: 650;
+}
+.main-form fieldset > label[for="believe"] {
+  justify-content: flex-start;
+}
+input {
+  padding: 8px;
+  min-width: 170px;
+  border: 0;
+  background-color: #a7a6a6;
+  border-radius: 15px;
+}
+input:focus {
+  border: 0;
+  border-radius: 15px;
+  outline: none;
+  box-shadow: 0 2px 2px 0 #789bc4, 0 3px 3px 0 #789bc4;
+}
+
+.main-form label > input[type="checkBox"] {
+  min-width: 13px;
+  margin-right: 7px;
+  margin: 10px;
+}
+.pdf-view {
+  border: 0;
+}
+
+.download-button {
+  /* max-height: 45px; */
+  text-decoration: none;
+  padding: 10px;
+  align-self: center;
+  text-align: center;
+  background-color: #5881af;
+  color: #fff;
+  border-radius: 25px;
+  letter-spacing: 1px;
+  margin-top: 15px;
+}
