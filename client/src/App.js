@@ -1,5 +1,5 @@
 import React,{useEffect} from 'react';
-import {useDispatch} from 'react-redux';
+import {useDispatch,useSelector} from 'react-redux';
 import {Routes , BrowserRouter as Router,Route} from 'react-router-dom'
 
 // import react componant
@@ -14,9 +14,11 @@ import {loadUser} from './store/action/authAction';
 import './App.css';
 
 export const App = () => {
+    const {auth} =useSelector(state => state)
     const dispatch = useDispatch()
     useEffect(() => {
-        dispatch(loadUser())
+        dispatch(loadUser());
+        // if(!!auth.isAuthenticed){navigate('/MainForm')}
     }, [])
     return (
         
@@ -27,7 +29,7 @@ export const App = () => {
                         <Route path="/" exact element={<Home/>} />
                         <Route path="/login" element={<Login/>} />
                         <Route path="/signup" element={<SignUp/>} />
-                        <Route path="/MainForm" element={<MainForm/>} />
+                        <Route path="/mainForm" element={<MainForm/>} />
                         
                     </Routes>
                 </div>
@@ -35,4 +37,5 @@ export const App = () => {
         
     )
 }
+
 export default App;

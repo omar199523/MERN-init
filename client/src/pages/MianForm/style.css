@@ -1,4 +1,5 @@
 .main-form {
+  margin-top: 20vh !important;
   padding: 0px 15px 20px 15px;
   display: flex;
   flex-direction: column;
@@ -20,7 +21,7 @@
   font-weight: 550;
 }
 .main-form fieldset > label {
-  flex: 1 1 220px;
+  flex: 1 1 400px;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -32,7 +33,7 @@
 }
 input {
   padding: 8px;
-  min-width: 170px;
+  min-width: 300px;
   border: 0;
   background-color: #a7a6a6;
   border-radius: 15px;

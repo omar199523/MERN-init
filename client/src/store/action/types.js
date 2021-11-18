@@ -1,7 +1,7 @@
-export const GET_ITEM ="GET_ITEM";
-export const ADD_ITEM ="ADD_ITEM";
-export const DELET_ITEM ="DELET_ITEM";
-export const ITEM_LOADING ="ITEM_LOADING";
+export const GET_PERSON ="GET_PERSON";
+export const ADD_PERSON ="ADD_PERSON";
+export const DELET_PERSON ="DELET_PERSON";
+export const PERSON_LOADING ="PERSON_LOADING";
 
 export const USER_LOADING ="USER_LOADING";
 export const USER_LOADED ="USER_LOADED";

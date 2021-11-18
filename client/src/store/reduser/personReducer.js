@@ -1,34 +1,34 @@
 
-import { GET_ITEM ,ADD_ITEM,DELET_ITEM, ITEM_LOADING} from '../action/types';
+import { GET_PERSON ,ADD_PERSON,DELET_PERSON, PERSON_LOADING} from '../action/types';
 
 const  initialState ={
-     items:[],
+     persons:[],
      loading:false
  }
 
  // eslint-disable-next-line import/no-anonymous-default-export
  export default function(state = initialState,action){
      switch(action.type){
-         case GET_ITEM:
+         case GET_PERSON:
             return {
                  ...state,
-                 items:action.payload,
+                 persons:action.payload,
                  loading:false
              }
-        case ADD_ITEM:
-            console.log(state.items)
+        case ADD_PERSON:
+            console.log(state.persons)
             return {
                  ...state,
-                 items:[...state.items ,action.payload]
+                 persons:[...state.persons ,action.payload]
                  
              }
-        case DELET_ITEM:
+        case DELET_PERSON:
             console.log(action.payload)
             return {
                  ...state,
-                 items:state.items.filter(item=>item._id !== action.payload)
+                 persons:state.persons.filter(person=>person._id !== action.payload)
              }
-        case ITEM_LOADING:
+        case PERSON_LOADING:
             return{
                 ...state,
                 loading:true

@@ -2,6 +2,7 @@ import axios from 'axios';
 import {returnErrors} from './errorAction'
 import {USER_LOADING ,USER_LOADED,AUTH_ERROR,LOGIN_SUCCESS ,REGISTER_SUCCESS, REGISTER_FAIL, LOGOUT_SUCCESS, LOGIN_FAIL } from './types'
 
+import { push } from "connected-react-router";
 
 
 // check token & load user
@@ -84,6 +85,9 @@ export const login =({email,password})=>dispatch=>{
             type:LOGIN_SUCCESS,
             payload:res.data
         }))
+        .then(() => {
+            dispatch(push('/mainForm'))
+        })
         .catch(err=>{
             dispatch(returnErrors( err.response.data , err.response.status,LOGIN_FAIL))
             dispatch({

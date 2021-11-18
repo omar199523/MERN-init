@@ -1,11 +1,45 @@
-import React from 'react'
+import React ,{useState}from 'react'
 import Input from '../../componants/Input'
 import { PDFDownloadLink} from '@react-pdf/renderer';
 import PageOne from '../PageOne';
+import {H2} from '../../componants/Typograph'
 
 import "./style.css"
-export const MianForm = ({data,handleInputChange}) => {
-    const {petitionNo,
+export const MianForm = ({}) => {
+    const [data,setData] =useState({
+		petitionNo:String,
+		deceasedName:String,
+		deceasedAddress:String,
+		deceasedOccupation:String,
+		personName:String,
+		personReligion:String,
+		personIntionality:String,
+		personAge:Number,
+		personAddress:Number,
+		throwDate:Date,
+		throwLanguage:String,
+		throwAdditioan:String,
+		believe:false,
+		personOneName:String,
+		credenceLocation:String,
+		credenceDate:Date,
+
+
+		
+	});
+    const handleInputChange = (event) => {
+        console.log(event)
+        const { target } = event;
+        const value = target.type === 'checkbox' ? target.checked : target.value;
+        const { name } = target;
+        setData({ ...data, [name]: value });
+      };
+    const handleOnSubmit =(e)=>{
+        e.preventDefault();
+
+    }
+    const {
+        petitionNo,
 		deceasedName,
 		deceasedAddress,
 		deceasedOccupation,
@@ -13,21 +47,19 @@ export const MianForm = ({data,handleInputChange}) => {
 		personReligion,
 		personIntionality,
 		personAge,
-        personAddress,
+		personAddress,
 		throwDate,
 		throwLanguage,
 		throwAdditioan,
-        believe,
+		believe,
 		personOneName,
 		credenceLocation,
 		credenceDate,
-}=data;
-    const handleOnSubmit =(e)=>{
-        e.preventDefault();
-
-    }
+    } = data
     return (
-        <form onSubmit={handleOnSubmit} className="main-form">
+        <form onSubmit={handleOnSubmit} className="main-form container">
+    
+            <H2>Form No. 102 </H2>
             <fieldset>
                 <legend>Deceased Info</legend>
                 <Input type ="text"
