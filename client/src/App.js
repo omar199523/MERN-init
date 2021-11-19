@@ -1,6 +1,8 @@
 import React,{useEffect} from 'react';
 import {useDispatch,useSelector} from 'react-redux';
-import {Routes , BrowserRouter as Router,Route} from 'react-router-dom'
+// import {Routes,Route} from 'react-router-dom';
+import { Route, Switch } from 'react-router'
+import { ConnectedRouter } from 'connected-react-router';
 
 // import react componant
 import Header from './componants/Header'
@@ -12,8 +14,9 @@ import MainForm from './pages/MianForm'
 import {loadUser} from './store/action/authAction';
 // import style
 import './App.css';
+import SherPersonData from './pages/SherPersonData';
 
-export const App = () => {
+export const App = ({history}) => {
     const {auth} =useSelector(state => state)
     const dispatch = useDispatch()
     useEffect(() => {
@@ -22,20 +25,23 @@ export const App = () => {
     }, [])
     return (
         
-             <Router>
-                 <div className="App">
-                    <Header/>
-                    <Routes>
-                        <Route path="/" exact element={<Home/>} />
-                        <Route path="/login" element={<Login/>} />
-                        <Route path="/signup" element={<SignUp/>} />
-                        <Route path="/mainForm" element={<MainForm/>} />
-                        
-                    </Routes>
-                </div>
-            </Router>
-        
-    )
+        <ConnectedRouter history={history} >
+            <div className = "App">
+                <Header/>
+                <Switch>
+                        <Route path="/" exact component={Home} />
+                        <Route path="/login" component={Login} />
+                        <Route path="/signup" component={SignUp} />
+                        {(!auth.isAuthenticed)?(
+                        <>
+                            <Route path="/mainForm" component={MainForm} />
+                            <Route path="/sherPersonData" component={SherPersonData} />
+                        </>
+                    ):null}
+                </Switch>
+            </div>
+        </ConnectedRouter>
+                )
 }
 
 export default App;

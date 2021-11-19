@@ -1,7 +1,7 @@
 import { GET_PERSON ,ADD_PERSON,DELET_PERSON ,PERSON_LOADING} from "./types";
 import axios from 'axios'
 
-export const getPerson =()=>dispatch=>{
+export const getPersons =()=>dispatch=>{
     dispatch(personIsLoading());
     axios.get('/api/persons').then(res=>{
         dispatch({
@@ -11,14 +11,19 @@ export const getPerson =()=>dispatch=>{
     })
 }
 export const addPerson =(person)=>dispatch=>{
-    axios.post('/api/persons/add',person)
+    const config ={
+        headers:{
+            "content-type":"application/json"
+        }
+    }
+    axios.post('/api/persons/add',person,config)
     .then(res=>{
         dispatch({
             type:ADD_PERSON,
             payload:res.data
         })
     })
-    dispatch(getPerson())
+    dispatch(getPersons())
 }
 export const deletPerson =(id)=>dispatch=>{
     axios.delete(`/api/persons/delete/${id}`)

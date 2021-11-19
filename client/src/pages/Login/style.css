@@ -25,12 +25,12 @@
   font-size: 1.2em;
 }
 .login-form > .sucssce {
-  height: 2em;
-  padding: 1em;
+  padding: 0.8em;
   text-align: center;
-  color: #0abd28;
-  background-color: #51b837;
-  border-radius: 1.5em;
+  color: #024430;
+  background-color: #82e2b4;
+  border-radius: 0.3em;
+  font-size: 1.2em;
 }
 .login-form > label {
   padding-left: 1em;

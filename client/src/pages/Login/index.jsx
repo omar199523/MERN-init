@@ -34,7 +34,7 @@ const Login = ()=> {
     return (
         <form onSubmit ={handleOnSubmit } className="login-form">
             <H2>Log In</H2>
-            <output className={(!auth.isAuthenticed)?"error":"sucssce"}>{loginData.msg}</output>
+            <output className={(!auth.isAuthenticed)?"error":"sucssce"}>{(!auth.isAuthenticed)?(loginData.msg):("Login is success")}</output>
             <label htmlFor ="email">
                 Email
                 <input id="email" type="email" name ="email" value ={loginData.email} onChange= {handleOnChange}/>

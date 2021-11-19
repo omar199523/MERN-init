@@ -2,10 +2,14 @@ import React ,{useState}from 'react'
 import Input from '../../componants/Input'
 import { PDFDownloadLink} from '@react-pdf/renderer';
 import PageOne from '../PageOne';
-import {H2} from '../../componants/Typograph'
+import {H2} from '../../componants/Typograph';
+import {useDispatch} from 'react-redux';
+import {addPerson} from '../../store/action/parsonData'
+
 
 import "./style.css"
 export const MianForm = ({}) => {
+    const dispatch = useDispatch()
     const [data,setData] =useState({
 		petitionNo:String,
 		deceasedName:String,
@@ -36,6 +40,7 @@ export const MianForm = ({}) => {
       };
     const handleOnSubmit =(e)=>{
         e.preventDefault();
+         dispatch(addPerson(data)) 
 
     }
     const {
@@ -184,7 +189,7 @@ export const MianForm = ({}) => {
                 name="credenceDate"
                 />
             </fieldset>
-            
+            <button type= "submit">add perosn</button>
 
             <PDFDownloadLink document={<PageOne data={data}/>} className="download-button" fileName = "Form_106.pdf">
                 {({ blob, url, loading, error }) =>

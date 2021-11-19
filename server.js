@@ -4,7 +4,7 @@ const bodyParser = require('body-parser');
 const path = require('path')
 const config = require('config')
 
-const items =require('./route/api/items')
+const persons =require('./route/api/persons')
 const users =require('./route/api/users')
 const auth =require('./route/api/auth')
 const app = express();
@@ -27,7 +27,7 @@ connection.on('connected', () => {
 	console.log('mongoDB database connection established successfully');
 });
 // use route
-app.use('/api/items',items);
+app.use('/api/persons',persons);
 app.use('/api/user',users);
 app.use('/api/auth',auth);
 //serve static assets if in production
