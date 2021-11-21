@@ -1,7 +1,7 @@
 import React,{useState} from 'react';
-import {useSelector} from 'react-redux';
-import { Link } from 'react-router-dom'
-
+import {useSelector,useDispatch} from 'react-redux';
+import { Link } from 'react-router-dom';
+import {logout} from '../../store/action/authAction';
 import store from '../../store'
 
 
@@ -10,6 +10,7 @@ import './style.css';
 
 const Header = ({setDarckMode ,DarckMode}) => {
     const {isAuthenticed} = useSelector(state => state.auth)
+    const dispatch = useDispatch()
     return (
         <header className="main-header">
             <a href="/" className="main-logo">
@@ -20,9 +21,9 @@ const Header = ({setDarckMode ,DarckMode}) => {
                     {(!isAuthenticed)?(
                         <>
                             <a href="/login"><li className="button sing-in">Sing In</li></a>
-                            <a href="/signup"><li className="button sing-up">Sing Up</li></a>
+                            <a href="/signup"><li className="button sign-up">Sing Up</li></a>
                         </>
-                     ):(<li className="button sing-up">LogOut</li>)}
+                     ):(<button onClick={()=> dispatch(logout())}><li className="button sign-up">LogOut</li></button>)}
                 </ul>
             </div>
         </header>

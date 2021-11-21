@@ -5,7 +5,7 @@ const SherPersonData = () => {
     const dispatch = useDispatch()
     useEffect(()=>{
         dispatch(getPersons)
-    },[])
+    },[dispatch])
     return (
         <div>
             

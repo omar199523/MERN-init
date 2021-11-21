@@ -189,12 +189,14 @@ export const MianForm = ({}) => {
                 name="credenceDate"
                 />
             </fieldset>
-            <button type= "submit">add perosn</button>
+            <fieldset className= "but-cont">
+            <button type= "submit">Add Perosn</button>
 
             <PDFDownloadLink document={<PageOne data={data}/>} className="download-button" fileName = "Form_106.pdf">
-                {({ blob, url, loading, error }) =>
-        loading ? 'Loading document...' : 'Download now !'
-      }</PDFDownloadLink>
+                {({ loading }) => {
+                    return loading ? 'Loading document...' : 'Download now !';
+                }}</PDFDownloadLink>
+            </fieldset>
             
         </form>
     )

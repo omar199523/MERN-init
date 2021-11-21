@@ -24,25 +24,19 @@ export const App = ({history}) => {
         // if(!!auth.isAuthenticed){navigate('/MainForm')}
     }, [])
     return (
+        <div className = "App">
+            <Header/>
+            <Switch>
+                <Route path="(/)?" exact component={Home} />
+                <Route path="/login" exact component={Login} />
+                <Route path="/signup" exact component={SignUp} />
+                <Route path="/mainForm" exact component={MainForm} />
+                <Route path="/sherPersonData" exact component={SherPersonData} />
+                {/* <Route path = "*" component ={<h1>404 this page is no defind</h1>}/> */}
+            </Switch>
+        </div>
         
-        <ConnectedRouter history={history} >
-            <div className = "App">
-                <Header/>
-                <Switch>
-                        <Route path="/" exact component={Home} />
-                        <Route path="/login" component={Login} />
-                        <Route path="/signup" component={SignUp} />
-                        <Route path="/mainForm" component={MainForm} />
-                        <Route path="/sherPersonData" component={SherPersonData} />
-                        {(!auth.isAuthenticed)?(
-                        <>
-                            
-                        </>
-                    ):null}
-                </Switch>
-            </div>
-        </ConnectedRouter>
-                )
+    )
 }
 
 export default App;

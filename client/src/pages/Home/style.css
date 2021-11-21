@@ -12,7 +12,7 @@
   flex-direction: column;
   justify-content: space-around;
 }
-.text-cont .but-cont > button {
+.text-cont .but-cont-home > button {
   padding: 0.7em 1.5em;
   margin-left: 1.5em;
   font-size: 1rem;
@@ -20,7 +20,7 @@
   border-radius: 0.5em;
   background-color: #ddd;
 }
-.text-cont .but-cont > button:hover {
+.text-cont .but-cont-home > button:hover {
   background-color: #02897a;
   color: #fff;
 }

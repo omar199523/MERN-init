@@ -66,10 +66,9 @@ export const register = ({name,email,password}) => dispatch =>{
         })
     })
 }
-export const logout =()=>dispatch =>{
-    return{
-        type: LOGOUT_SUCCESS
-    }
+export const logout = ()=>async dispatch =>{
+    const res1 = await dispatch({type: LOGOUT_SUCCESS});
+    const res2 = await dispatch(push('/'))
 
 }
 
@@ -91,18 +90,11 @@ export const login =({email,password})=>dispatch=>{
             type:LOGIN_SUCCESS,
             payload:res.data
         }),
-            
+        dispatch(push('/mainForm'))
         ])
-        .then (()=>{
-            try{
-                dispatch(push('/mainForm'))
-            }catch(err){
-                console.log(err)
-            }
-        })
-        
         .catch(err=>{
-            dispatch(returnErrors( err.response.data , err.response.status,LOGIN_FAIL))
+
+            dispatch(returnErrors( err.response.data.msg , err.response.status,LOGIN_FAIL))
             dispatch({
             type:LOGIN_FAIL,
         })})

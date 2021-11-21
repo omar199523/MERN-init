@@ -3,7 +3,6 @@ import { useDispatch,useSelector } from 'react-redux';
 import {login} from '../../store/action/authAction';
 import {H2} from "../../componants/Typograph"
 import "./style.css"
-import { push} from 'connected-react-router'
 import {clearErrors} from '../../store/action/errorAction'
 
 
@@ -34,8 +33,7 @@ const Login = ()=> {
       const handleOnSubmit=(e)=>{
         e.preventDefault();
         const {email,password}=  loginData;
-        dispatch(login({email,password}))
-        
+        dispatch(login({email,password}))  
       }
     return (
         <form onSubmit ={handleOnSubmit } className="login-form">

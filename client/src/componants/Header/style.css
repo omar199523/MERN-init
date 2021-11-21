@@ -101,7 +101,7 @@
   border-radius: 2px;
   font-weight: 900 !important;
 }
-.sing-up {
+.sign-up {
   border: 0;
   color: #fff !important;
   background-color: #02897a;
@@ -113,27 +113,6 @@
   background-color: #ffffff;
   padding: 0.52em 1.5em !important;
 }
-.half-circite {
-  cursor: pointer;
-  margin-left: 10px;
-  width: 25px;
-  height: 25px;
-  border-radius: 50%;
-  padding: 2px;
-  border: 2px solid #02897a;
-  background-color: #fff;
-  display: flex;
-}
-.half-circite div {
-  flex: 2 2 11px;
-  height: 16.8px;
-}
-.half-circite div:nth-of-type(1) {
-  flex: 2 2 12px;
-  background-color: #02897a;
-  border-radius: 11px 0 0 11px;
-}
-.half-circite div:nth-of-type(2) {
-  background-color: #fff;
-  border-radius: 0 11px 11px 0;
+button {
+  border: 0;
 }

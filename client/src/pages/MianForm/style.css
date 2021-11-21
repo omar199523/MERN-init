@@ -1,5 +1,5 @@
 .main-form {
-  margin-top: 20vh !important;
+  margin-top: 10vh !important;
   padding: 0px 15px 20px 15px;
   display: flex;
   flex-direction: column;
@@ -53,7 +53,25 @@ input:focus {
 .pdf-view {
   border: 0;
 }
-
+.but-cont {
+  width: 40%;
+  display: flex;
+  justify-content: space-around;
+  align-items: baseline;
+  border: 0 !important;
+}
+.but-cont > button {
+  font-size: 1.2em;
+  font-weight: 450;
+  padding: 10.5px;
+  align-self: center;
+  text-align: center;
+  background-color: #5881af;
+  color: #fff;
+  border-radius: 25px;
+  letter-spacing: 1px;
+  margin-top: 15px;
+}
 .download-button {
   /* max-height: 45px; */
   text-decoration: none;
@@ -65,4 +83,6 @@ input:focus {
   border-radius: 25px;
   letter-spacing: 1px;
   margin-top: 15px;
+  font-size: 1em !important;
+  font-weight: 500 !important;
 }
