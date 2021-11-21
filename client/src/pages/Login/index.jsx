@@ -3,6 +3,9 @@ import { useDispatch,useSelector } from 'react-redux';
 import {login} from '../../store/action/authAction';
 import {H2} from "../../componants/Typograph"
 import "./style.css"
+import { push} from 'connected-react-router'
+import {clearErrors} from '../../store/action/errorAction'
+
 
 
 
@@ -17,10 +20,12 @@ const Login = ()=> {
 
     })
     useEffect(()=>{
-        setLoginData({...loginData,msg:error.msg.msg})
-    },[])
+        if(error.id ==="LOGIN_FAIL"){
+            setLoginData({...loginData,msg:error.msg.msg})
+            dispatch(clearErrors())
+        }
+    },[dispatch, error.id, error.msg.msg, loginData])
     const handleOnChange = (event) => {
-        console.log(event)
         const { target } = event;
         const value = target.type === 'checkbox' ? target.checked : target.value;
         const { name } = target;
@@ -30,6 +35,7 @@ const Login = ()=> {
         e.preventDefault();
         const {email,password}=  loginData;
         dispatch(login({email,password}))
+        
       }
     return (
         <form onSubmit ={handleOnSubmit } className="login-form">

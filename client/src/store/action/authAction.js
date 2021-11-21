@@ -1,7 +1,7 @@
 import axios from 'axios';
 import {returnErrors} from './errorAction'
 import {USER_LOADING ,USER_LOADED,AUTH_ERROR,LOGIN_SUCCESS ,REGISTER_SUCCESS, REGISTER_FAIL, LOGOUT_SUCCESS, LOGIN_FAIL } from './types'
-import {go, push, replace} from 'connected-react-router'
+import {push} from 'connected-react-router'
 
 
 
@@ -53,17 +53,18 @@ export const register = ({name,email,password}) => dispatch =>{
 
     axios.post('/api/user',body,config)
         .then(res =>dispatch([
+            dispatch(push('/login')),
             {
             type:REGISTER_SUCCESS,
             payload:res.data
-        },
-        dispatch(push('/login'))
+        }
         ]))
         .catch(err=>{
             dispatch(returnErrors( err.response.data , err.response.status,REGISTER_FAIL))
             dispatch({
             type:REGISTER_FAIL,
-        })})
+        })
+    })
 }
 export const logout =()=>dispatch =>{
     return{
@@ -85,13 +86,20 @@ export const login =({email,password})=>dispatch=>{
 
     axios.post('/api/auth',body,config)
         .then(res =>
-            dispatch([
+            [dispatch(
                 {
             type:LOGIN_SUCCESS,
             payload:res.data
-        },
-        dispatch(push('/mainForm'))
-        ]))
+        }),
+            
+        ])
+        .then (()=>{
+            try{
+                dispatch(push('/mainForm'))
+            }catch(err){
+                console.log(err)
+            }
+        })
         
         .catch(err=>{
             dispatch(returnErrors( err.response.data , err.response.status,LOGIN_FAIL))

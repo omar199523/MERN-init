@@ -20,7 +20,7 @@ export const App = ({history}) => {
     const {auth} =useSelector(state => state)
     const dispatch = useDispatch()
     useEffect(() => {
-        dispatch(loadUser());
+        // dispatch(loadUser());
         // if(!!auth.isAuthenticed){navigate('/MainForm')}
     }, [])
     return (
@@ -32,10 +32,11 @@ export const App = ({history}) => {
                         <Route path="/" exact component={Home} />
                         <Route path="/login" component={Login} />
                         <Route path="/signup" component={SignUp} />
+                        <Route path="/mainForm" component={MainForm} />
+                        <Route path="/sherPersonData" component={SherPersonData} />
                         {(!auth.isAuthenticed)?(
                         <>
-                            <Route path="/mainForm" component={MainForm} />
-                            <Route path="/sherPersonData" component={SherPersonData} />
+                            
                         </>
                     ):null}
                 </Switch>

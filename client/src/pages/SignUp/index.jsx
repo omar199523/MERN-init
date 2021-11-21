@@ -28,7 +28,7 @@ const SignUp = ()=> {
             dispatch(clearErrors())
         }
         
-    }, [])
+    }, [dispatch, error.id, error.msg.msg, signupData])
     const handleOnChange = (event) => {
         const { target } = event;
         const value = target.type === 'checkbox' ? target.checked : target.value;
