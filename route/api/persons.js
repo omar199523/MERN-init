@@ -13,15 +13,16 @@ router.get('/',auth,(req,res)=>{
     Persons.find()
     .sort({date: -1})
     .then((data)=>res.json(data))
-    .catch((err=>console.log(err)));
+    .catch(err=>res.status(404).json({succsss:false}));
 })
 
 //  @route post api/persons/add
 // @ desc creat a post
 // @access private
 router.post('/add',auth,(req,res)=>{
+    console.log(req.body);
     const newPerson = new persons(req.body);
-    newPerson.save().then(person => res.json(person))
+    newPerson.save().then(person => res.json({...person,msg:"new pweson added"}))
 })
 //  @route delete api/persons/:id
 // @ desc delete a post
