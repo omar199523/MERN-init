@@ -1,16 +1,17 @@
 const express =require('express');
-const item = require('../../models/person');
+const Person = require('../../models/persons');
 const router = express.Router();
 const auth = require('../../middelwaer/auth')
 
 
 // users model
-const Persons = require('../../models/person')
+const Persons = require('../../models/persons')
 //  @route get api/persons
 // @ desc get all person
 // @access puplic
-router.get('/',auth,(req,res)=>{
-    Persons.find()
+router.get('/',(req,res)=>{
+    console.log("object")
+    Person.find()
     .sort({date: -1})
     .then((data)=>res.json(data))
     .catch(err=>res.status(404).json({succsss:false}));
@@ -20,10 +21,10 @@ router.get('/',auth,(req,res)=>{
 // @ desc creat a post
 // @access private
 router.post('/add',auth,(req,res)=>{
-    console.log(req.body);
-    // const newPerson = new persons(req.body);
-    // newPerson.save().then(person => res.json({...person,msg:"new pweson added"}))
-})
+    const newPerson = new Person({...req.body});
+    newPerson.save()
+    .then(person => res.json({...person._doc}))
+    .catch ((err)=>{res.status(404).json({success:false,msg:"add faill!"})})})
 //  @route delete api/persons/:id
 // @ desc delete a post
 // @access private

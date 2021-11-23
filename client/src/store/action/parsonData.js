@@ -5,18 +5,18 @@ import axios from 'axios'
 
 export const getPersons =()=>dispatch=>{
     dispatch(personIsLoading());
-    axios.get('/api/persons').then(res=>{
+    axios.get('/api/persons/').then(res=>{
         dispatch({
             type:GET_PERSON,
             payload:res.data,
         })
     }).catch(err=>{
-    dispatch(returnErrors( err.response.data.msg , err.response.status));
+         dispatch(returnErrors( err.response.data.msg , err.response.status));
     })
 }
 export const addPerson =(person)=>(dispatch,getState)=>{
     dispatch(personIsLoading());
-    
+    console.log(person)
     // Request body
     const body = JSON.stringify({...person})
     axios.post('/api/persons/add/',body,tokenConfig(getState))

@@ -1,0 +1,5 @@
+.all-persons {
+  margin-top: 15vh;
+  flex-direction: column;
+  align-items: stretch;
+}
