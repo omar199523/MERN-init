@@ -192,13 +192,14 @@ export const MianForm = ({}) => {
             <fieldset className= "but-cont">
             <button type= "submit">Add Perosn</button>
 
-            <PDFDownloadLink document={<PageOne data={data}/>} className="download-button" fileName = "Form_106.pdf">
-                {({ loading }) => {
-                    return loading ? 'Loading document...' : 'Download now !';
-                }}</PDFDownloadLink>
+            
             </fieldset>
             
         </form>
     )
 }
 export default MianForm;
+/* <PDFDownloadLink document={<PageOne data={data}/>} className="download-button" fileName = "Form_106.pdf">
+                {({ loading }) => {
+                    return loading ? 'Loading document...' : 'Download now !';
+                }}</PDFDownloadLink> */

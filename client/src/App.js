@@ -20,9 +20,8 @@ export const App = ({history}) => {
     const {auth} =useSelector(state => state)
     const dispatch = useDispatch()
     useEffect(() => {
-        // dispatch(loadUser());
-        // if(!!auth.isAuthenticed){navigate('/MainForm')}
-    }, [])
+        dispatch(loadUser());
+    }, [dispatch ])
     return (
         <div className = "App">
             <Header/>

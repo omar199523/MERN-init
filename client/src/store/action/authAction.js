@@ -9,24 +9,7 @@ import {push} from 'connected-react-router'
 export const loadUser = ()=> (dispatch,getState)=>{
     // user loading
     dispatch({type:USER_LOADING});
-    // get token from localstorge
-
-    const token =localStorage.getItem('token');
-
-    // headers
-
-    const config ={
-        headers:{
-            "content-type":"application/json"
-        }
-    }
-    // if token .add to headers
-
-    if(token) {
-        config.headers['x-auth-token']=token
-    }
-
-    axios.get("/api/auth/user",config)
+    axios.get("/api/auth/user",tokenConfig(getState))
     .then(res =>dispatch({
         type:USER_LOADED,
         payload:res.data
@@ -98,5 +81,20 @@ export const login =({email,password})=>dispatch=>{
             dispatch({
             type:LOGIN_FAIL,
         })})
+}
+export const tokenConfig = (getState,dispatch)=>{
+    // grt token feom localstorge
+    const token = getState().auth.token;
+
+    // Headers
+    const config = {
+        headers:{
+            "Content-type":"application/json"
+        }
+    }
+    if(token){
+        config.headers['x-auth-token'] = token;
+    }
+    return config
 }
     
