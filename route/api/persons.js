@@ -21,8 +21,8 @@ router.get('/',auth,(req,res)=>{
 // @access private
 router.post('/add',auth,(req,res)=>{
     console.log(req.body);
-    const newPerson = new persons(req.body);
-    newPerson.save().then(person => res.json({...person,msg:"new pweson added"}))
+    // const newPerson = new persons(req.body);
+    // newPerson.save().then(person => res.json({...person,msg:"new pweson added"}))
 })
 //  @route delete api/persons/:id
 // @ desc delete a post

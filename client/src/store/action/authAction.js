@@ -88,7 +88,6 @@ export const login =({email,password})=>dispatch=>{
 export const tokenConfig = (getState,dispatch)=>{
     // grt token feom localstorge
     const token = getState().auth.token;
-    console.log(token)
     // Headers
     const config = {
         headers:{
