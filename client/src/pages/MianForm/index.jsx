@@ -70,7 +70,7 @@ export const MianForm = ({}) => {
                 <Input type ="text"
                 placeholder ="petition No"
                 label ="Petition No."
-                minLength="8"
+                // minLength="8"
                 value={petitionNo}
                 handleInputChange={handleInputChange}
                 name="petitionNo"

@@ -7,8 +7,11 @@ import {push} from 'connected-react-router'
 
 // check token & load user
 export const loadUser = ()=> (dispatch,getState)=>{
+
     // user loading
     dispatch({type:USER_LOADING});
+    // requst
+
     axios.get("/api/auth/user",tokenConfig(getState))
     .then(res =>dispatch({
         type:USER_LOADED,
@@ -23,7 +26,7 @@ export const loadUser = ()=> (dispatch,getState)=>{
 
 }
 
-export const register = ({name,email,password}) => dispatch =>{
+export const register = ({name,email,password}) => (dispatch) =>{
     // Headers
     const config = {
         headers:{
@@ -50,8 +53,8 @@ export const register = ({name,email,password}) => dispatch =>{
     })
 }
 export const logout = ()=>async dispatch =>{
-    const res1 = await dispatch({type: LOGOUT_SUCCESS});
-    const res2 = await dispatch(push('/'))
+     await dispatch({type: LOGOUT_SUCCESS});
+     await dispatch(push('/'))
 
 }
 
@@ -85,13 +88,14 @@ export const login =({email,password})=>dispatch=>{
 export const tokenConfig = (getState,dispatch)=>{
     // grt token feom localstorge
     const token = getState().auth.token;
-
+    console.log(token)
     // Headers
     const config = {
         headers:{
             "Content-type":"application/json"
         }
     }
+    console.log(config)
     if(token){
         config.headers['x-auth-token'] = token;
     }

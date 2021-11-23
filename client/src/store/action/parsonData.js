@@ -18,9 +18,8 @@ export const addPerson =(person)=>(dispatch,getState)=>{
     dispatch(personIsLoading());
     
     // Request body
+    console.log(getState())
     const body = JSON.stringify({...person})
-    console.log(body)
-
     axios.post('/api/persons/add',body,tokenConfig(getState))
         .then(res =>dispatch(
             {
