@@ -45,10 +45,17 @@ const SignUp = ()=> {
         }
         
       }
+      const handleError = ()=>{
+          if(error.status){
+              return (<output className="error">{signupData.msg}</output>)
+          }else if (auth.isAuthenticed){
+              return (<output className="sucssce">"Sign Up is Success"</output>)
+          }
+      }
     return (
         <form onSubmit ={handleOnSubmit } className="signup-form">
             <H2>Sign Up</H2>
-            <output className={(!auth.isAuthenticed)?"error":"sucssce"}>{signupData.msg}</output>
+            {handleError()}
             <label htmlFor ="CompletName">
                 Complet Name
                 <input id="CompletName" type="text" name ="completName" value ={signupData.completName} onChange= {handleOnChange}/>

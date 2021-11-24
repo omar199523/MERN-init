@@ -30,14 +30,22 @@ const Login = ()=> {
         const { name } = target;
         setLoginData({ ...loginData, [name]: value });
       };
-      const handleOnSubmit=(e)=>{
+    const handleOnSubmit=(e)=>{
         e.preventDefault();
         const {email,password}=  loginData;
         dispatch(login({email,password}))  
-      }
+    }
+    const handleError = ()=>{
+        if(error.status){
+            return (<output className="error">{loginData.msg}</output>)
+        }else if (auth.isAuthenticed){
+            return (<output className="sucssce">"Sign Up is Success"</output>)
+        }
+    }
     return (
         <form onSubmit ={handleOnSubmit } className="login-form">
             <H2>Log In</H2>
+            {handleError()}
             <output className={(!auth.isAuthenticed)?"error":"sucssce"}>{(!auth.isAuthenticed)?(loginData.msg):("Login is success")}</output>
             <label htmlFor ="email">
                 Email
