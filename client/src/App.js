@@ -32,7 +32,7 @@ export const App = ({history}) => {
                 <Route path="/signup" exact component={SignUp} />
                 <ProtectRoute path="/mainForm" exact component={MainForm} />
                 <ProtectRoute path="/sherPersonData" exact component={SherPersonData} />
-                <Route path="/pdfviewer" exact component ={PdfView} />
+                <ProtectRoute path="/pdfviewer" exact component ={PdfView} />
                 {/* <Route path = "*" component ={<h1>404 this page is no defind</h1>}/> */}
             </Switch>
         </div>

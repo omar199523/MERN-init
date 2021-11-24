@@ -25,7 +25,8 @@ const Header = ({setDarckMode ,DarckMode}) => {
                         </>
                      ):(
                         <>
-                            <a href="/sherPersonData"><li className="button sign-up">show persons</li></a>
+                            <a href="/sherPersonData"><li className="button sign-up">Show Persons</li></a>
+                            <a href="/mainForm"><li className="button sign-up">Add Person</li></a>
                             <button onClick={()=> dispatch(logout())}><li className="button sign-up">LogOut</li></button>
                         </>    
                         )}
