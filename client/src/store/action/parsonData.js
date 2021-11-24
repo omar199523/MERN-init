@@ -1,4 +1,4 @@
-import { GET_PERSON ,ADD_PERSON,DELET_PERSON ,PERSON_LOADING} from "./types";
+import { GET_PERSON ,ADD_PERSON,DELET_PERSON ,PERSON_LOADING,PRESENT_PERSON} from "./types";
 import {tokenConfig} from './authAction';
 import { returnErrors } from "./errorAction";
 import axios from 'axios'
@@ -40,6 +40,12 @@ export const deletPerson =(id)=>(dispatch,getState)=>{
     }).catch(err=>{
         dispatch(returnErrors( err.response.data.msg , err.response.status));
     })
+}
+export const presentPerson=(preson)=>{
+    return{
+        type:PRESENT_PERSON,
+        payload:preson
+    }
 }
 
 export const personIsLoading=()=>{

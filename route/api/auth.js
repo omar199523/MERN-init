@@ -55,7 +55,7 @@ router.post ('/',(req,res)=>{
 // @ desc get user  data
 // @access private
 router.get('/user',auth,(req,res)=>{
-    user.findById(req.user.id)
+    Users.findById(req.user.id)
     .select('-password')
     .then(user => res.json(user));
   })

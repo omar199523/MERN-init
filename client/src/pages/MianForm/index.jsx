@@ -1,7 +1,7 @@
 import React ,{useState}from 'react'
 import Input from '../../componants/Input'
 import { PDFDownloadLink} from '@react-pdf/renderer';
-import PageOne from '../PageOne';
+import PageOne from '../../componants/PageOne';
 import {H2} from '../../componants/Typograph';
 import {useDispatch} from 'react-redux';
 import {addPerson} from '../../store/action/parsonData'

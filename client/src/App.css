@@ -120,3 +120,8 @@ html {
     display: none;
   }
 }
+.pdf-view {
+  width: 100%;
+  height: 80vh;
+  margin-top: 10vh;
+}

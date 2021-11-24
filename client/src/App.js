@@ -1,5 +1,5 @@
 import React,{useEffect} from 'react';
-import {useDispatch,useSelector} from 'react-redux';
+import {useDispatch} from 'react-redux';
 // import {Routes,Route} from 'react-router-dom';
 import { Route, Switch } from 'react-router'
 
@@ -11,6 +11,7 @@ import Home from './pages/Home'
 import MainForm from './pages/MianForm';
 import SherPersonData from './pages/SherPersonData';
 import ProtectRoute from './componants/ProtectRout';
+import PdfView from './pages/PdfView';
 // import state.
 import {loadUser} from './store/action/authAction';
 // import style
@@ -18,7 +19,6 @@ import './App.css';
 
 
 export const App = ({history}) => {
-    const {auth} =useSelector(state => state)
     const dispatch = useDispatch()
     useEffect(() => {
         dispatch(loadUser());
@@ -32,8 +32,8 @@ export const App = ({history}) => {
                 <Route path="/signup" exact component={SignUp} />
                 <ProtectRoute path="/mainForm" exact component={MainForm} />
                 <ProtectRoute path="/sherPersonData" exact component={SherPersonData} />
+                <Route path="/pdfviewer" exact component ={PdfView} />
                 {/* <Route path = "*" component ={<h1>404 this page is no defind</h1>}/> */}
-                
             </Switch>
         </div>
         
