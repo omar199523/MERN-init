@@ -1,7 +1,7 @@
 .signup-form {
   padding: 15px;
   margin: 20vh auto;
-  min-height: 37vh;
+  min-height: 370px;
   min-width: 500px;
   display: flex;
   flex-direction: column;
@@ -16,21 +16,19 @@
   border-radius: 1.5em;
   color: #fff;
 }
-.signup-form > .error {
+output {
   padding: 0.8em;
   text-align: center;
-  color: #640303;
-  background-color: #eb8787;
   border-radius: 0.3em;
   font-size: 1.2em;
 }
-.signup-form > .sucssce {
-  padding: 0.8em;
-  text-align: center;
+.signup-form > .error {
   color: #640303;
   background-color: #eb8787;
-  border-radius: 0.3em;
-  font-size: 1.2em;
+}
+.signup-form > .sucssce {
+  color: #024430;
+  background-color: #82e2b4;
 }
 .signup-form > label {
   padding-left: 1em;

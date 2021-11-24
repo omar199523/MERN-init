@@ -4,14 +4,14 @@ import {getPersons} from '../../store/action/parsonData'
 import {H3} from '../../componants/Typograph';
 import OnePerson from '../../componants/OnePerson'
 
-import './style.css'
+import './style.css';
 const SherPersonData = () => {
     const dispatch = useDispatch();
     const {persons} = useSelector(state => state.persons)
     useEffect(()=>{
         dispatch(getPersons())
         console.log(persons)
-    },[dispatch])
+    },[dispatch, persons])
     return (
         <div className="all-persons container">
             <div className ="one-person">

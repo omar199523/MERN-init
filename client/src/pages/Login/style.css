@@ -1,7 +1,7 @@
 .login-form {
   padding: 15px;
   margin: 25vh auto;
-  min-height: 35vh;
+  min-height: 320px;
   min-width: 500px;
   display: flex;
   flex-direction: column;
@@ -16,21 +16,19 @@
   border-radius: 1.5em;
   color: #fff;
 }
-.login-form > .error {
+output {
   padding: 0.8em;
   text-align: center;
-  color: #640303;
-  background-color: #eb8787;
   border-radius: 0.3em;
   font-size: 1.2em;
 }
+.login-form > .error {
+  color: #640303;
+  background-color: #eb8787;
+}
 .login-form > .sucssce {
-  padding: 0.8em;
-  text-align: center;
   color: #024430;
   background-color: #82e2b4;
-  border-radius: 0.3em;
-  font-size: 1.2em;
 }
 .login-form > label {
   padding-left: 1em;
