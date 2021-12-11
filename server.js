@@ -7,6 +7,7 @@ const config = require('config')
 const persons =require('./route/api/persons')
 const users =require('./route/api/users')
 const auth =require('./route/api/auth')
+const addAdmin = require('./route/api/addAdmin')
 const app = express();
 
 
@@ -14,7 +15,7 @@ const app = express();
 app.use(express.json()); 
 
 
-// Databease config 
+
 
 
 // process.env.MONGODB_URI ||
@@ -23,8 +24,9 @@ mongoose.connect( process.env.MONGODB_URI || config.get('mongoURI') ,{useNewUrlP
 
 
 const { connection } = mongoose;
-connection.on('connected', () => {
-	console.log('mongoDB database connection established successfully');
+connection.on('connected',async ()=>{
+	await console.log('mongoDB database connection established successfully');
+    await addAdmin("admin@info.in")
 });
 // use route
 app.use('/api/persons',persons);
@@ -39,6 +41,7 @@ if(process.env.NODE_ENV ==='production'){
     });
 }
  
+//Add admin user
 
 
 const port = process.env.PORT || 5000;

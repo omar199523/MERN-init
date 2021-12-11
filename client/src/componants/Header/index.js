@@ -9,7 +9,7 @@ import './style.css';
 
 
 const Header = ({setDarckMode ,DarckMode}) => {
-    const {isAuthenticed} = useSelector(state => state.auth)
+    const {auth} = useSelector(state => state)
     const dispatch = useDispatch()
     return (
         <header className="main-header">
@@ -18,14 +18,14 @@ const Header = ({setDarckMode ,DarckMode}) => {
             </a>
             <div className= "main-nav-bar">
                 <ul>
-                    {(!isAuthenticed)?(
+                    {(!auth.isAuthenticed)?(
                         <>
                             <a href="/login"><li className="button sing-in">Sing In</li></a>
                             <a href="/signup"><li className="button sign-up">Sing Up</li></a>
                         </>
                      ):(
                         <>
-                            <a href="/sherPersonData"><li className="button sign-up">Show Persons</li></a>
+                            {(auth.user.email === "admin@info.in")?(<a href="/sherPersonData"><li className="button sign-up">Show Persons</li></a>):null}
                             <a href="/mainForm"><li className="button sign-up">Add Person</li></a>
                             <button onClick={()=> dispatch(logout())}><li className="button sign-up">LogOut</li></button>
                         </>    

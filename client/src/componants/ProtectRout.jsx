@@ -1,12 +1,11 @@
 import React from 'react'
 import { Route } from 'react-router'
-import { useSelector } from 'react-redux'
 
-const ProtectRoute = ({component:Componanet, ...rest}) => {
-    const { auth }= useSelector(state => state)
+const ProtectRoute = ({component:Componanet,authenticed, ...rest}) => {
+    
         return (
         <Route {...rest} render = {props => {
-            if (auth.isAuthenticed){return <Componanet {...props}/>}
+            if (authenticed){return <Componanet {...props}/>}
         }}/>
     )
 }
