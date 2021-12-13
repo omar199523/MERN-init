@@ -68,5 +68,9 @@ const PersonSchema =new Schema({
         type:Date,
         required:true
     },
+    userAddId:{
+        type:String,
+        required:true
+    }
 })
 module.exports = Person = mongoose.model("person",PersonSchema)

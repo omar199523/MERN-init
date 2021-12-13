@@ -1,4 +1,4 @@
-import React ,{useState}from 'react'
+import React ,{useState,useEffect}from 'react'
 import Input from '../../componants/Input'
 import { PDFDownloadLink} from '@react-pdf/renderer';
 import PageOne from '../../componants/PageOne';
@@ -8,8 +8,9 @@ import {addPerson} from '../../store/action/parsonData'
 
 
 import "./style.css"
-export const MianForm = ({}) => {
+export const MianForm = () => {
     const dispatch = useDispatch()
+    const {user} = useSelector(state => state.state)
     const [data,setData] =useState({
 		petitionNo:String,
 		deceasedName:String,
@@ -27,6 +28,7 @@ export const MianForm = ({}) => {
 		personOneName:String,
 		credenceLocation:String,
 		credenceDate:Date,
+        userAddId:String
 	});
     const dataReset =() =>{
         setData({
@@ -60,6 +62,11 @@ export const MianForm = ({}) => {
         await dispatch(addPerson(data)) 
         await dataReset();
     }
+    useEffect(() => {
+        document.title = "Data form";
+        
+        setData({...data,userAddId:user.id});
+    }, [document.title])
     const {
         petitionNo,
 		deceasedName,

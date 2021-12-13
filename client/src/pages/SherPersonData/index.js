@@ -9,6 +9,7 @@ const SherPersonData = () => {
     const dispatch = useDispatch();
     const {persons} = useSelector(state => state.persons)
     useEffect(()=>{
+        document.title = "Show Person Data"
         dispatch(getPersons())
 
     },[])

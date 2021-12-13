@@ -19,6 +19,7 @@ const Login = ()=> {
 
     })
     useEffect(() => {
+        document.title = "Log in"
         if(error.id === "LOGIN_FAIL"){
             setLoginData({...loginData,msg:error.msg.msg})
 
