@@ -4,10 +4,11 @@ const jwt =require('jsonwebtoken')
 const Users = require('../../models/user');
 
 module.exports = function addAdmin(email){
+
     User.findOne({email})
     .then(user =>{
         console.log("admin added")
-        if(user) throw "exit"
+        if(user) return "exit"
     })
     const newUser =new User({
         name:"Admin",

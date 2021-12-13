@@ -10,10 +10,8 @@ function authAdmin(req,res,next){
     try {
         const decoded = jwt.verify(token,config.get('jwtSecret'))
        // add user from payload
-       if(decoded.email==="admin@info.in"){
-        req.user = decoded;
+       req.user = decoded;
         next();
-       }
 
     }catch(e){
         res.status(400).json({msg:"Token is not valid"})

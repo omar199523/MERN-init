@@ -10,10 +10,9 @@ import Login from './pages/Login'
 import SignUp from './pages/SignUp'
 import Home from './pages/Home'
 import MainForm from './pages/MianForm';
-import SherPersonData from './pages/SherPersonData';
 import ProtectRoute from './componants/ProtectRout';
 import PdfView from './pages/PdfView';
-import AdminPage from './pages/Admin';
+import AdminPage from './pages/AdminPage';
 // import state.
 import {loadUser} from './store/action/authAction';
 // import style
@@ -34,7 +33,7 @@ export const App = ({history}) => {
                 <Route path="/login" exact component={Login} />
                 <Route path="/signup" exact component={SignUp} />
                 <ProtectRoute path="/mainForm" authenticed={auth.isAuthenticed} exact component={MainForm} />
-                <ProtectRoute path="/sherPersonData" authenticed={auth.isAuthenticed && auth.user.email ==="admin@info.in"} exact component={SherPersonData} />
+                <ProtectRoute path="/AdminPage" authenticed={auth.isAuthenticed && auth.user.email ==="admin@info.in"} exact component={AdminPage} />
                 <ProtectRoute path="/pdfviewer" authenticed={auth.isAuthenticed} exact component ={PdfView} />
                 {/* <Route path = "*" component ={<h1>404 this page is no defind</h1>}/> */}
             </Switch>

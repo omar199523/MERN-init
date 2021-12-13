@@ -3,7 +3,7 @@ const router = express.Router();
 const bcrypt = require('bcryptjs');
 const config = require('config');
 const jwt =require('jsonwebtoken')
-
+const authAdmin = require('../../middelwaer/admin')
 
 // users model
 const Users = require('../../models/user')
@@ -56,6 +56,11 @@ router.post ('/',(req,res)=>{
     })
 })
 
-
+router.get('/getUser',authAdmin,(req,res)=>{
+    Users.find()
+    .sort({date: -1})
+    .then((data)=>res.json(data))
+    .catch(err=>res.status(404).json({succsss:false}));
+})
 
 module.exports = router;

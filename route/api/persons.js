@@ -10,7 +10,7 @@ const Persons = require('../../models/persons')
 //  @route get api/persons
 // @ desc get all person
 // @access puplic
-router.get('/',authAdmin,(req,res)=>{
+router.get('/',auth,(req,res)=>{
     console.log("object")
     Person.find()
     .sort({date: -1})

@@ -25,7 +25,7 @@ const Header = ({setDarckMode ,DarckMode}) => {
                         </>
                      ):(
                         <>
-                            {(auth.user.email === "admin@info.in")?(<a href="/sherPersonData"><li className="button sign-up">Show Persons</li></a>):null}
+                            {(auth.user.email === "admin@info.in")?(<a href="/AdminPage"><li className="button sign-up">Admin Page</li></a>):null}
                             <a href="/mainForm"><li className="button sign-up">Add Person</li></a>
                             <button onClick={()=> dispatch(logout())}><li className="button sign-up">LogOut</li></button>
                         </>    

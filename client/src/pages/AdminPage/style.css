@@ -1,0 +1,20 @@
+.admin-page{
+    margin: 5em !important;
+    justify-content: start;
+}
+.left-bar{
+    flex:1 1 70px;
+    display: flex;
+    flex-direction: column;
+}
+.left-bar-button{
+    font-size: 1.2em;
+    font-weight: 540;
+    padding-top: 1em;
+    text-align: left;
+    
+
+}
+.admin-page h2{
+    width: 100%;
+}

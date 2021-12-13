@@ -1,8 +1,7 @@
 import axios from 'axios';
 import {returnErrors} from './errorAction'
-import {USER_LOADING ,USER_LOADED,AUTH_ERROR,LOGIN_SUCCESS ,REGISTER_SUCCESS, REGISTER_FAIL, LOGOUT_SUCCESS, LOGIN_FAIL } from './types'
+import {USER_LOADING ,USER_LOADED, AUTH_ERROR,LOGIN_SUCCESS ,REGISTER_SUCCESS, REGISTER_FAIL, LOGOUT_SUCCESS, LOGIN_FAIL } from './types'
 import {push} from 'connected-react-router'
-
 
 
 // check token & load user
@@ -98,4 +97,3 @@ export const tokenConfig = (getState,dispatch)=>{
     }
     return config
 }
-    
