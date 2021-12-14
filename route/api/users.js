@@ -3,7 +3,8 @@ const router = express.Router();
 const bcrypt = require('bcryptjs');
 const config = require('config');
 const jwt =require('jsonwebtoken')
-
+const auth = require("../../middelwaer/auth")
+const authAdmin = require("../../middelwaer/admin")
 
 // users model
 const Users = require('../../models/user')
@@ -35,7 +36,9 @@ router.post ('/',(req,res)=>{
             newUser.save()
                 .then(user=>{
                     jwt.sign(
-                        {id:user.id},
+                        {id:user.id,
+                        name:user.name,
+                        email:user.email},
                         config.get("jwtSecret"),
                         {expiresIn :3600},
                         (err,token)=>{
@@ -56,6 +59,14 @@ router.post ('/',(req,res)=>{
     })
 })
 
-
+//  @route get api/user
+// @ desc get all user
+// @access puplic
+router.get('/getUsers',authAdmin,(req,res)=>{
+    Users.find()
+    .sort({date: -1})
+    .then((data)=>res.json(data))
+    .catch(err=>res.status(404).json({succsss:false}));
+})
 
 module.exports = router;

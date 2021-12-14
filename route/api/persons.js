@@ -2,6 +2,7 @@ const express =require('express');
 const Person = require('../../models/persons');
 const router = express.Router();
 const auth = require('../../middelwaer/auth')
+const authAdmin = require('../../middelwaer/admin')
 
 
 // users model
@@ -9,7 +10,7 @@ const Persons = require('../../models/persons')
 //  @route get api/persons
 // @ desc get all person
 // @access puplic
-router.get('/',(req,res)=>{
+router.get('/',authAdmin,(req,res)=>{
     Person.find()
     .sort({date: -1})
     .then((data)=>res.json(data))
