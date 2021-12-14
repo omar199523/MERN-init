@@ -1,16 +1,14 @@
 import React ,{useState,useEffect}from 'react'
 import Input from '../../componants/Input'
-import { PDFDownloadLink} from '@react-pdf/renderer';
-import PageOne from '../../componants/PageOne';
 import {H2} from '../../componants/Typograph';
-import {useDispatch} from 'react-redux';
+import {useDispatch,useSelector} from 'react-redux';
 import {addPerson} from '../../store/action/parsonData'
 
 
 import "./style.css"
 export const MianForm = () => {
     const dispatch = useDispatch()
-    const {user} = useSelector(state => state.state)
+    const {user} = useSelector(state => state.auth)
     const [data,setData] =useState({
 		petitionNo:String,
 		deceasedName:String,
@@ -48,6 +46,7 @@ export const MianForm = () => {
             personOneName:"",
             credenceLocation:"",
             credenceDate:"",
+            userAddId:""
         })
     }
     const handleInputChange = (event) => {
@@ -64,8 +63,7 @@ export const MianForm = () => {
     }
     useEffect(() => {
         document.title = "Data form";
-        
-        setData({...data,userAddId:user.id});
+        setData({...data,userAddId:user._id})
     }, [document.title])
     const {
         petitionNo,
