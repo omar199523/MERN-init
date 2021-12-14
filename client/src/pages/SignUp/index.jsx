@@ -23,6 +23,7 @@ const SignUp = ()=> {
 
     })
     useEffect(() => {
+        document.title = "Sign Up"
         if(error.id ==="REGISTER_FAIL"){
             setSignUpData({...signupData,msg:error.msg.msg})
         }

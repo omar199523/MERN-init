@@ -1,4 +1,4 @@
-import React ,{useState}from 'react'
+import React ,{useState,useEffect}from 'react'
 import Input from '../../componants/Input'
 import { PDFDownloadLink} from '@react-pdf/renderer';
 import PageOne from '../../componants/PageOne';
@@ -8,8 +8,9 @@ import {addPerson} from '../../store/action/parsonData'
 
 
 import "./style.css"
-export const MianForm = ({}) => {
+export const MianForm = () => {
     const dispatch = useDispatch()
+    const {user} = useSelector(state => state.state)
     const [data,setData] =useState({
 		petitionNo:String,
 		deceasedName:String,
@@ -19,7 +20,7 @@ export const MianForm = ({}) => {
 		personReligion:String,
 		personIntionality:String,
 		personAge:Number,
-		personAddress:Number,
+		personAddress:String,
 		throwDate:Date,
 		throwLanguage:String,
 		throwAdditioan:String,
@@ -27,10 +28,28 @@ export const MianForm = ({}) => {
 		personOneName:String,
 		credenceLocation:String,
 		credenceDate:Date,
-
-
-		
+        userAddId:String
 	});
+    const dataReset =() =>{
+        setData({
+            petitionNo:"",
+            deceasedName:"",
+            deceasedAddress:"",
+            deceasedOccupation:"",
+            personName:"",
+            personReligion:"",
+            personIntionality:"",
+            personAge:0,
+            personAddress:"",
+            throwDate:"",
+            throwLanguage:"",
+            throwAdditioan:"",
+            believe:false,
+            personOneName:"",
+            credenceLocation:"",
+            credenceDate:"",
+        })
+    }
     const handleInputChange = (event) => {
         console.log(event)
         const { target } = event;
@@ -38,11 +57,16 @@ export const MianForm = ({}) => {
         const { name } = target;
         setData({ ...data, [name]: value });
       };
-    const handleOnSubmit =(e)=>{
+    const handleOnSubmit = async(e)=>{
         e.preventDefault();
-         dispatch(addPerson(data)) 
-
+        await dispatch(addPerson(data)) 
+        await dataReset();
     }
+    useEffect(() => {
+        document.title = "Data form";
+        
+        setData({...data,userAddId:user.id});
+    }, [document.title])
     const {
         petitionNo,
 		deceasedName,
@@ -62,7 +86,7 @@ export const MianForm = ({}) => {
 		credenceDate,
     } = data
     return (
-        <form onSubmit={handleOnSubmit} className="main-form container">
+        <form onSubmit={handleOnSubmit}  className="main-form container">
     
             <H2>Form No. 102 </H2>
             <fieldset>

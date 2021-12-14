@@ -1,7 +1,7 @@
 
 .one-person {
     display: grid;
-    grid-template-columns: 250px 250px 250px 100px 100px;
+    grid-template-columns: 220px 220px 220px 90px 90px 90px;
     grid-gap: 1.2;
     padding: 1em;
   }

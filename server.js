@@ -26,7 +26,7 @@ mongoose.connect( process.env.MONGODB_URI || config.get('mongoURI') ,{useNewUrlP
 const { connection } = mongoose;
 connection.on('connected',async ()=>{
 	await console.log('mongoDB database connection established successfully');
-    await addAdmin("admin@info.in")
+    // await addAdmin("admin@info.in")
 });
 // use route
 app.use('/api/persons',persons);

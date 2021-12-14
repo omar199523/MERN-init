@@ -3,9 +3,9 @@ import {tokenConfig} from './authAction';
 import { returnErrors } from "./errorAction";
 import axios from 'axios'
 
-export const getPersons =()=>dispatch=>{
+export const getPersons =()=>(dispatch,getState)=>{
     dispatch(personIsLoading());
-    axios.get('/api/persons/').then(res=>{
+    axios.get('/api/persons/',tokenConfig(getState)).then(res=>{
         dispatch({
             type:GET_PERSON,
             payload:res.data,
