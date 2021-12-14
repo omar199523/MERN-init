@@ -1,7 +1,7 @@
 import {GET_USERS } from '../action/types'
 
 const initialState ={
-    Users:[]
+    users:[]
 }
 
 // eslint-disable-next-line import/no-anonymous-default-export
@@ -9,9 +9,10 @@ export default function (state =initialState,action){
     switch(action.type){
         
         case GET_USERS:
+            console.log(action.payload)
             return {
                  ...state,
-                 persons:action.payload,
+                 users:action.payload,
                  loading:false
              }
         

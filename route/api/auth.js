@@ -30,7 +30,9 @@ router.post ('/',(req,res)=>{
         if(!isMatch) return res.status(400).json({msg:'Incalid credentials'})
 
         jwt.sign(
-            {id:user.id},
+            {id:user.id,
+            name:user.name,
+            email:user.email},
             config.get("jwtSecret"),
             {expiresIn :3600},
             (err,token)=>{

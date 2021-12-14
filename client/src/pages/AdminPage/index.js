@@ -15,7 +15,7 @@ const AdminPage =()=>{
                 <button className="left-bar-button" onClick={()=>{setUser(false); setPerson(true)}}>Person</button>
             </div>
             <div className="show-data-cont">
-                {(user)?(<showUsers/>):null}
+                {(user)?(<ShowUser/>):null}
                 {(person)?(<ShowPerson/>):null}
                 
             </div>
