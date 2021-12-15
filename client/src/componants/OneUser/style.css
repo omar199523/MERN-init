@@ -1,0 +1,28 @@
+.one-user {
+    display: flex;
+    justify-content: space-around;
+  }
+  .one-user *{
+    text-align: center;
+    padding: 0.5em;
+    color: #397cb3;
+    border: 0.7px solid #397cb3
+  }
+  .user-name{
+      flex: 2 2 200px;
+  }
+  .user-email{
+      flex:2 2 250px
+  }
+  .edit-button {
+    flex: 1 1 85px;
+    
+  }
+  .open-button {
+    flex: 1 1 85px;
+    
+  }
+  .deleat-button {
+    flex: 1 1 85px;
+  
+  }

@@ -1,33 +1,38 @@
-.all-persons {
+.all-users {
   flex-direction: column;
-  align-items: stretch;
+  align-items: stretch !important;
 }
-.all-persons h3{
-  flex: 100%;
-  align-self: stretch;
-  text-align: left;
-  padding: 1.5em;
-  border-bottom:1.4px solid #ddd;
+
+.title-user {
+  display: flex;
+  justify-content: stretch;
 }
-.title-one-person {
-  display: grid;
-  grid-template-columns: 180px 180px 180px 75px 75px 75px;
-  grid-gap: 1.2;
-}
-.title-one-person > * {
+.title-user > * {
   text-align: center;
-  padding: 1em;
-  margin: 1em;
+  background-color: #397cb3;
+  padding: 0.5em;
+  color: #fff;
+  border-right: 0.7px solid #fff
+
 }
-.one-person > .open-button {
-  flex: 4 1 20px;
-  margin-left: 1em;
-  background-color: #02897a;
-  padding: 1em;
+.title-user-name{
+  flex: 2 2 200px;
 }
-.one-person > .deleat-button {
-  flex: 4 1 20px;
-  margin-right: 1em;
-  background-color: #890202;
-  padding: 1em;
+.title-user-email{
+  flex:2 2 250px;
+}
+.title-user > .title-open-button {
+  flex: 1 1 85px;
+  
+  
+}
+.title-user > .title-edit-button {
+  flex: 1 1 85px;
+  
+ 
+}
+.title-user > .title-deleat-button {
+  flex: 1 1 85px;
+
+
 }

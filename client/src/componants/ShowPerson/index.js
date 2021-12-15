@@ -14,13 +14,13 @@ const ShowPerson = () => {
     },[])
     return (
         <div className="all-persons">
-            <div className ="title-one-person">
+            <div className ="title-person">
                 <P1 className="title-petition-no">petition No</P1>
                 <P1 className="title-deceased-name">deceased Name</P1>
                 <P1 className="title-person-name">person Name</P1>
-                <P1 className="title-open-button">Edit</P1>
-                <P1 className="title-open-button">open</P1>
-                <P1 className="title-deleat-button">deleat</P1>
+                <P1 className="title-edit-button">Edit</P1>
+                <P1 className="title-open-button">Open</P1>
+                <P1 className="title-deleat-button">Deleat</P1>
             </div>
             {persons.map((person) => (<OnePerson person={person}/>))}
         </div>

@@ -1,28 +1,38 @@
 .all-persons {
   flex-direction: column;
-  align-items: stretch;
+  align-items: stretch !important;
 }
-.title-one-person > * {
+
+.title-person {
+  display: flex;
+  justify-content: space-between;
+}
+.title-person > * {
   text-align: center;
-  /* padding: 1em; */
-}
-.title-one-person {
-  display: grid;
-  grid-template-columns: 220px 220px 220px 90px 90px 90px;
-  grid-gap: 1.2;
-}
+  background-color: #397cb3;
+  padding: 0.5em;
+  color: #fff;
+  border-right: 0.7px solid #fff
 
-.one-person > .open-button {
-  flex: 4 1 20px;
-  margin-left: 1em;
-  background-color: #02897a;
-  /* padding: 1em; */
 }
-.one-person > .deleat-button {
-  flex: 4 1 20px;
-  /* margin-right: 1em; */
-  background-color: #890202;
-  /* padding: 1em; */
+.title-person > .title-petition-no{
+  flex: 2 2 100px;
 }
-
-
+.title-person >.title-deceased-name{
+  flex: 2 2 155px;
+}
+.title-person > .title-person-email{
+  flex:2 2 155px;
+}
+.title-person > .title-person-name{
+  flex:2 2 155px
+}
+.title-person >.title-edit-button  {
+  flex: 1 1 85px;
+}
+.title-person > .title-open-button {
+  flex: 1 1 85px;
+}
+.title-deleat-button {
+  flex: 1 1 85px;
+}

@@ -1,20 +1,28 @@
 .admin-page{
     margin: 5em !important;
-    justify-content: start;
-}
-.left-bar{
-    flex:1 1 70px;
-    display: flex;
-    flex-direction: column;
-}
-.left-bar-button{
-    font-size: 1.2em;
-    font-weight: 540;
-    padding-top: 1em;
-    text-align: left;
-    
-
+    justify-content: space-between;
+    align-items: stretch !important;
 }
 .admin-page h2{
     width: 100%;
+    padding: 1em;
+}
+.left-bar{
+    flex: 1 1 140px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+}
+.left-bar-button{
+    font-size: 1.2em;
+    font-weight: 550;
+    padding: 0.7em;
+    text-align: left;
+    background-color: rgb(107, 105, 105);
+    color: #fff;
+    margin-right: 1em;
+
+}
+.show-data-cont{
+    flex:8 8 400px
 }

@@ -21,8 +21,9 @@ const OnePerson = ({person}) => {
             <H5 className="petition-no">{petitionNo}</H5>
             <H5 className="deceased-name">{deceasedName}</H5>
             <H5 className="person-name">{personName}</H5>
-            <button className="open-button" onClick={openPdfView} >open</button>
-            <button className="deleat-button" onClick={()=>{dispatch(deletPerson(_id))}}>deleat</button>
+            <button className="edit-button" onClick={openPdfView} >Edit</button>
+            <button className="open-button" onClick={openPdfView} >Open</button>
+            <button className="deleat-button" onClick={()=>{dispatch(deletPerson(_id))}}>Deleat</button>
         </div>
     )
 }

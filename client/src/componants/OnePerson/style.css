@@ -1,23 +1,30 @@
-
 .one-person {
-    display: grid;
-    grid-template-columns: 220px 220px 220px 90px 90px 90px;
-    grid-gap: 1.2;
-    padding: 1em;
-  }
-  .one-person > * {
-    text-align: center;
-  }
-  .one-person > button {
-    padding: 0.2em;
-    color: #fff;
-    font-size: 0.9em;
-    font-weight: 520;
-    border-radius: 1.5em;
-  }
-  .one-person > .open-button {
-    background-color: #02897a;
-  }
-  .one-person > .deleat-button {
-    background-color: #890202;
-  }
+  display: flex;
+  justify-content: space-around;
+}
+.one-person *{
+  text-align: center;
+  padding: 0.5em;
+  color: #397cb3;
+  border-right: 0.7px solid #397cb3
+}
+.petition-no{
+    flex: 2 2 100px;
+}
+.deceased-name{
+    flex:2 2 150px
+}
+.person-name{
+  flex:2 2 150px;
+}
+.edit-button {
+  flex: 1 1 85px;
+}
+.open-button {
+  flex: 1 1 85px;
+}
+.deleat-button {
+  flex: 1 1 85px;
+  
+
+}

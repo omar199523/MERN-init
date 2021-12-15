@@ -15,10 +15,10 @@ const ShowUser = () => {
     },[dispatch])
     return (
         <div className="all-users">
-            <div className ="title-one-person">
-                <H5 className="title-petition-no">User ID</H5>
-                <H5 className="title-deceased-name">User Name</H5>
-                <H5 className="title-open-button">Edit</H5>
+            <div className ="title-user">
+                <H5 className="title-user-name">User ID</H5>
+                <H5 className="title-user-email">Email</H5>
+                <H5 className="title-edit-button">Edit</H5>
                 <H5 className="title-open-button">open</H5>
                 <H5 className="title-deleat-button">deleat</H5>
             </div>
