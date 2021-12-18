@@ -9,11 +9,14 @@
 }
 .title-user > * {
   text-align: center;
-  background-color: #397cb3;
+  background-color: #f00f08;
   padding: 0.5em;
   color: #fff;
   border-right: 0.7px solid #fff
 
+}
+.title-number{
+  flex: 1 1 40px;
 }
 .title-user-name{
   flex: 2 2 200px;
@@ -21,18 +24,9 @@
 .title-user-email{
   flex:2 2 250px;
 }
-.title-user > .title-open-button {
-  flex: 1 1 85px;
-  
-  
+.title-date-added{
+  flex:1 1 100px
 }
-.title-user > .title-edit-button {
-  flex: 1 1 85px;
-  
- 
-}
-.title-user > .title-deleat-button {
-  flex: 1 1 85px;
-
-
+.title-action{
+  flex:1 1 100px
 }

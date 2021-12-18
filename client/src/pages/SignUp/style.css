@@ -1,56 +1,68 @@
+*{
+  color: #fff;
+}
 .signup-form {
-  padding: 15px;
-  margin: 20vh auto;
-  min-height: 370px;
+  padding: 1.2em;
+  margin: 18vh auto;
+  min-height: 440px;
   min-width: 500px;
   display: flex;
   flex-direction: column;
   justify-content: space-around;
-  border: 1px solid #ddd;
-  border-radius: 15px;
+  background-color: #1F2E35;
 }
 .signup-form h2 {
-  text-align: center;
   padding: 0.2em;
-  background-color: #02897a;
-  border-radius: 1.5em;
-  color: #fff;
+  color: #f00f08;
 }
 output {
-  padding: 0.8em;
+  padding: 0.5em;
   text-align: center;
   border-radius: 0.3em;
   font-size: 1.2em;
 }
 .signup-form > .error {
-  color: #640303;
-  background-color: #eb8787;
+  color: #f00f08;
+  background-color: #e59a97;
 }
 .signup-form > .sucssce {
-  color: #024430;
+  color: #06ca17;
   background-color: #82e2b4;
 }
 .signup-form > label {
-  padding-left: 1em;
+  padding: 0.4em;
   display: flex;
+  flex-direction: column;
   justify-content: space-between;
-  color: var(--FontColor);
+  color: #fff;
   font-weight: 550;
   font-size: 1em;
+  
 }
 .signup-form > label > input {
-  padding: 8px;
+  padding: 0.6em;
+  margin-top: 0.5em;
   border: 1px solid #ddd;
-  border-radius: 1em;
+  color: #fff !important;
+}
+.signup-form > label > input:focus{
+  padding: 0.6em ;
+  margin-top: 0.5em ;
+  /* border: 0.5px solid #ddd ; */
+  color: #fff ;
+  
+}
+output > a{
+  margin-left: 0.4em;
+  color: #f00f08;
 }
 .signup-form > button {
   border: 0;
-  border-radius: 1em;
   padding: 0.8em 1.5em !important;
   align-self: center;
   padding: 7px;
   font-size: 1em;
   font-weight: 600;
-  background-color: #02897a;
+  background-color: #f00f08;
   color: #fff;
 }

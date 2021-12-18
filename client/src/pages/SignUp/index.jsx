@@ -74,6 +74,7 @@ const SignUp = ()=> {
                 Confirm Password
                 <input id="ConfirmPassword" type="password" name ="confirmPassword" value ={signupData.confirmPassword} onChange= {handleOnChange}/>
             </label>
+            <output>if you not acount <a href='/login'>Create new acount</a></output>
             <button type="submit">Sign Up</button>
             
         </form>

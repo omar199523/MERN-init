@@ -1,19 +1,19 @@
 .main-header {
   position: fixed;
   width: 100%;
-  max-height: 85px;
+  /* max-height: 85px; */
   top: 0px;
   left: 0px;
   display: flex;
-  padding: 1.2em 5em;
+  padding: 1em 5em;
   justify-content: space-between;
   align-items: center;
-  background-color: var(--backgroundColor);
-  z-index: 7;
+  background-color: #1F2E35;
+  z-index: 10;
 }
-.main-header * {
+/* .main-header * {
   color: var(--FontColor);
-}
+} */
 @media (max-width: 767px) {
   .main-header {
     padding: 0.9em 2em;
@@ -23,11 +23,15 @@
   display: flex;
   text-decoration: none;
 }
-.main-logo > h2 {
+.main-logo > h1 {
   font-family: Poppins;
   font-size: 30px;
   font-weight: bold;
   padding: 0.2em 0.6em;
+  color: #fff;
+}
+.main-logo h1 > span{
+  color: #f00f08;
 }
 .main-nav-bar {
   display: flex;
@@ -54,12 +58,9 @@
   font-weight: 800;
   cursor: pointer;
 }
-.main-nav-bar ul a {
+.main-nav-bar ul li > a{
   text-decoration: none;
-}
-
-.main-nav-bar .active {
-  clip-path: circle(150% at 0% 100%);
+  color: rgb(141, 140, 140);
 }
 
 .nav-icon {
@@ -96,24 +97,34 @@
 .nav-icon div::before {
   transform: translateY(20px);
 }
+button {
+  border: 0;
+}
 .button {
   font-size: 1rem;
-  margin-left: 1em;
   border-radius: 2px;
   font-weight: 900 !important;
 }
-.sign-up {
-  border: 0;
-  color: #fff !important;
-  background-color: #02897a;
-  padding: 0.57em 1.6em !important;
-}
 .sing-in {
-  border: 1.5px solid #bcd0e5;
-  color: #173a56 !important;
-  background-color: #ffffff;
+  background-color: #fff ;
+  color: #f00f08 ;
   padding: 0.52em 1.5em !important;
 }
-button {
+.sing-in >  a{
+  color: #f00f08 !important;
+}
+.sign-up {
+  margin-left: 1em;
   border: 0;
+  background-color: #f00f08;
+  padding: 0.57em 1.6em !important;
+}
+.sign-up > a{
+  color: #fff !important;
+}
+
+.logout-but {
+  border: 0;
+  background-color: #f00f08;
+  padding: 0.57em 1.6em !important;
 }

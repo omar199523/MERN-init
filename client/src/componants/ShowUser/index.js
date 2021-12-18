@@ -16,13 +16,13 @@ const ShowUser = () => {
     return (
         <div className="all-users">
             <div className ="title-user">
-                <H5 className="title-user-name">User ID</H5>
+                <H5 className="title-number">Number</H5>
+                <H5 className="title-user-name">Name</H5>
                 <H5 className="title-user-email">Email</H5>
-                <H5 className="title-edit-button">Edit</H5>
-                <H5 className="title-open-button">open</H5>
-                <H5 className="title-deleat-button">deleat</H5>
+                <H5 className="title-date-added">Date</H5>
+                <H5 className="title-action">Aciton</H5>
             </div>
-            {users.map((user) => (<OneUser user={user}/>))}
+            {users.map((user,number) => (<OneUser user={user} number ={number +1}/>))}
         </div>
     )
 }

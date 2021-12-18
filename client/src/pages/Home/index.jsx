@@ -7,23 +7,18 @@ import "./style.css"
 const Home = () => {
     const {auth} =  useSelector(state => state)
     const dispatch = useDispatch();
-    useEffect(() => {
-        document.title ="HIGH COURT OF JUDICATURE AT BOMBAY"
-    }, [document.title])
     return (
-        <div className="home-page container">
-            <div className ="text-cont">
-                <H2>Welcame IN THE HIGH COURT OF JUDICATURE AT BOMBAY</H2>
-                <H5>You can issue any document through our website</H5>
-            <div className="but-cont-home">
-                {(!auth.isAuthenticed)?(<a href="/signup" className="button sign-up">Sign Up</a>):null}
-                    <button onClick = {()=>{dispatch(push('/login'))}}>About Us</button>
+        <div className="home-page ">
+            <div className='bneer'></div>
+            <div className ="text-cont container">
+                <H2>Welcame <span>Fast</span> Lawyer</H2>
+                <H5>A good choice to use Fast Lawyer to release official documents</H5>
+                <div className="but-cont-home">
+                {/* {(!auth.isAuthenticed)?(<a href="/signup" className="button sign-up">Sign Up</a>):null}
+                    <button onClick = {()=>{dispatch(push('/login'))}}>About Us</button> */}
+                <button className='see-more-but'>See More</button>
                 </div>
-            </div>
-            <div className="img-cont">
-
-            </div>
-            
+            </div>    
         </div>
     )
 }

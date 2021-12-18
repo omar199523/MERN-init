@@ -14,20 +14,24 @@ const Header = ({setDarckMode ,DarckMode}) => {
     return (
         <header className="main-header">
             <a href="/" className="main-logo">
-                <h1>LINF</h1>
+                <h1><span>Fast </span>Lawyer</h1>
             </a>
             <div className= "main-nav-bar">
                 <ul>
+                    <li className="nav-bar-icon"><a href="/">Home</a></li>
+                    <li className="nav-bar-icon"><a href="/">Abuot Us</a></li>
+                    <li className="nav-bar-icon"><a href="/">Conect Us</a></li>
                     {(!auth.isAuthenticed)?(
                         <>
-                            <a href="/login"><li className="button sing-in">Sing In</li></a>
-                            <a href="/signup"><li className="button sign-up">Sing Up</li></a>
+                            <li className="button sing-in"><a href="/login">Sing In</a></li>
+                            <li className="button sign-up"><a href="/signup">Sing Up</a></li>
                         </>
                      ):(
                         <>
-                            {(auth.user.email === "admin@info.in")?(<a href="/AdminPage"><li className="button sign-up">Admin Page</li></a>):null}
-                            <a href="/mainForm"><li className="button sign-up">Add Person</li></a>
-                            <button onClick={()=> dispatch(logout())}><li className="button sign-up">LogOut</li></button>
+                            {(auth.user.email === "admin@info.in")?(<li className="nac-bar-icon"><a href="/AdminPage">Admin</a></li>):null}
+                            
+                            <li className="nac-bar-icon"><a href="/mainForm">Add Person</a></li>
+                            <li className="button sign-up"><a  href ="#" onClick={()=> dispatch(logout())}>LogOut</a></li>
                         </>    
                         )}
                 </ul>

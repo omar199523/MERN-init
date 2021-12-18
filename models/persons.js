@@ -68,6 +68,10 @@ const PersonSchema =new Schema({
         type:Date,
         required:true
     },
+    dataAdded:{
+        type:Date,
+        default:new Date
+    },
     userAddId:{
         type:String,
         required:true

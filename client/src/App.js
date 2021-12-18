@@ -32,6 +32,7 @@ export const App = ({history}) => {
                 <Route path="(/)?" exact component={Home} />
                 <Route path="/login" exact component={Login} />
                 <Route path="/signup" exact component={SignUp} />
+                <Route path="/Admin" exact component={AdminPage} />
                 <ProtectRoute path="/mainForm" authenticed={auth.isAuthenticed} exact component={MainForm} />
                 <ProtectRoute path="/AdminPage" authenticed={auth.isAuthenticed && auth.user.email ==="admin@info.in"} exact component={AdminPage} />
                 <ProtectRoute path="/pdfviewer" authenticed={auth.isAuthenticed} exact component ={PdfView} />

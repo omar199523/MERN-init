@@ -5,26 +5,24 @@
 .one-person *{
   text-align: center;
   padding: 0.5em;
-  color: #397cb3;
-  border-right: 0.7px solid #397cb3
+  color: #1F2E35;
+  border: 0.7px solid #f00f08;
 }
 .petition-no{
-    flex: 2 2 100px;
+  flex: 1 1 110px;
 }
 .deceased-name{
-    flex:2 2 150px
+    flex: 2 2 180px;
 }
 .person-name{
-  flex:2 2 150px;
+    flex:2 2 180px
 }
-.edit-button {
-  flex: 1 1 85px;
+.date-added{
+  flex:1 1 90px
 }
-.open-button {
-  flex: 1 1 85px;
+.user-added{
+  flex:1 1 90px
 }
-.deleat-button {
-  flex: 1 1 85px;
-  
-
+.one-action{
+  flex:1 1 80px
 }

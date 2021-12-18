@@ -1,4 +1,4 @@
-import  {useState} from "react";
+import  {useState,useEffect} from "react";
 import ShowPerson from "../../componants/ShowPerson"
 import ShowUser from "../../componants/ShowUser"
 import {H2,} from "../../componants/Typograph"
@@ -7,6 +7,9 @@ import './style.css'
 const AdminPage =()=>{
     const [user, setUser] = useState(false)
     const [person, setPerson] = useState(true)
+    useEffect(()=>{
+        document.title ="Admin Page"
+    },[])
     return (
         <div className="container admin-page">
             <H2>Admin Page</H2>

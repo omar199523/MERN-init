@@ -9,30 +9,27 @@
 }
 .title-person > * {
   text-align: center;
-  background-color: #397cb3;
+  background-color: #f00f08;
   padding: 0.5em;
   color: #fff;
   border-right: 0.7px solid #fff
 
 }
-.title-person > .title-petition-no{
-  flex: 2 2 100px;
+.title-petition-no{
+  flex: 1 1 110px;
 }
-.title-person >.title-deceased-name{
-  flex: 2 2 155px;
+.title-deceased-name{
+    flex: 2 2 180px;
 }
-.title-person > .title-person-email{
-  flex:2 2 155px;
+.title-person-name{
+    flex:2 2 180px
 }
-.title-person > .title-person-name{
-  flex:2 2 155px
+.title-Date{
+  flex:1 1 90px
 }
-.title-person >.title-edit-button  {
-  flex: 1 1 85px;
+.title-user-add{
+  flex:1 1 90px
 }
-.title-person > .title-open-button {
-  flex: 1 1 85px;
-}
-.title-deleat-button {
-  flex: 1 1 85px;
+.title-aciton{
+  flex:1 1 80px
 }

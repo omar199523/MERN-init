@@ -1,20 +1,17 @@
 .login-form {
-  padding: 15px;
+  padding: 1em;
   margin: 25vh auto;
   min-height: 320px;
   min-width: 500px;
   display: flex;
   flex-direction: column;
   justify-content: space-around;
-  border: 1px solid #ddd;
-  border-radius: 15px;
+  background-color: #1F2E35;
 }
 .login-form h2 {
-  text-align: center;
   padding: 0.2em;
-  background-color: #02897a;
   border-radius: 1.5em;
-  color: #fff;
+  color: #f00f08;
 }
 output {
   padding: 0.8em;
@@ -31,26 +28,30 @@ output {
   background-color: #82e2b4;
 }
 .login-form > label {
-  padding-left: 1em;
+  padding: 1em;
   display: flex;
+  flex-direction: column;
   justify-content: space-between;
-  color: var(--FontColor);
+  color: #fff;
   font-weight: 550;
   font-size: 1em;
 }
 .login-form > label > input {
-  padding: 8px;
+  margin-top:0.8em ;
+  padding: 10px;
   border: 1px solid #ddd;
-  border-radius: 1em;
+  color: #1F2E35;
+  border-radius: 0;
+  background-color: #fff;
 }
 .login-form > button {
+  margin-top: 0.8em;
   border: 0;
-  border-radius: 1em;
   padding: 0.8em 1.5em !important;
   align-self: center;
   padding: 7px;
   font-size: 1em;
   font-weight: 600;
-  background-color: #02897a;
+  background-color: #f00f08;
   color: #fff;
 }

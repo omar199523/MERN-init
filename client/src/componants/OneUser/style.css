@@ -5,8 +5,11 @@
   .one-user *{
     text-align: center;
     padding: 0.5em;
-    color: #397cb3;
-    border: 0.7px solid #397cb3
+    color: #1F2E35;
+    border: 0.7px solid #f00f08;
+  }
+  .user-number{
+    flex: 1 1 70px;
   }
   .user-name{
       flex: 2 2 200px;
@@ -14,15 +17,9 @@
   .user-email{
       flex:2 2 250px
   }
-  .edit-button {
-    flex: 1 1 85px;
-    
+  .date-added{
+    flex:1 1 100px
   }
-  .open-button {
-    flex: 1 1 85px;
-    
-  }
-  .deleat-button {
-    flex: 1 1 85px;
-  
+  .aciton{
+    flex:1 1 100px
   }
