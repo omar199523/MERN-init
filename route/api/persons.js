@@ -77,7 +77,7 @@ router.post('/edit',authAdmin,(req,res)=>{
             $currentDate:{dataAdded:true}
         }
         )
-        persons.findOne({_id}).then((p)=>console.log(p))
+        persons.findOne({_id}).then((p)=>res.json(p)
     
 }) 
 //  @route delete api/persons/:id
