@@ -47,12 +47,26 @@ export const presentPerson=(person)=>{
         payload:person
     }
 }
-export const editPerson=(person)=>{
+export const openEditPerson=(person)=>{
     console.log(person)
     return{
         type:EDIT_PERSON,
         payload:{editStatus:true,person}
     }
+}
+export const editPerson =(parson)=> (dispatch,getState)=>{
+    
+    // Request body
+    const body = JSON.stringify({...parson})
+    axios.post('/api/persons/edit',body,tokenConfig(getState))
+        .then(res =>dispatch(
+            {
+            type:ADD_PERSON,
+            payload:res.data
+        }
+        )).catch(err=>{
+            dispatch(returnErrors( err.response.data.msg , err.response.status));
+        })
 }
 
 export const personIsLoading=()=>{

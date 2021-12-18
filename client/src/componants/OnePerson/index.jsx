@@ -1,7 +1,7 @@
 import React from 'react';
 import { useDispatch } from 'react-redux';
 import {P1} from '../Typograph';
-import {deletPerson,presentPerson,editPerson} from '../../store/action/parsonData';
+import {deletPerson,presentPerson,openEditPerson} from '../../store/action/parsonData';
 import { push } from 'connected-react-router';
 
 import './style.css'
@@ -18,7 +18,7 @@ const OnePerson = ({person,userAdded}) => {
         await dispatch(push('/pdfviewer'));
     }
     const handleEditPerson =async ()=>{
-        await dispatch(editPerson(person));
+        await dispatch(openEditPerson(person));
         await dispatch(push('/mainForm'));
     }
     const handelDateAdded = `${new Date(dataAdded).getDay()}/${new Date(dataAdded).getMonth()}/${new Date(dataAdded).getFullYear()}`

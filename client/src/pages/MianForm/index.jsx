@@ -2,7 +2,7 @@ import React ,{useState,useEffect}from 'react'
 import Input from '../../componants/Input'
 import {H2} from '../../componants/Typograph';
 import {useDispatch,useSelector} from 'react-redux';
-import {addPerson} from '../../store/action/parsonData'
+import {addPerson,editPerson} from '../../store/action/parsonData'
 
 
 import "./style.css"
@@ -59,8 +59,13 @@ export const MianForm = () => {
       };
     const handleOnSubmit = async(e)=>{
         e.preventDefault();
-        await dispatch(addPerson(data));
-        await dataReset();
+        if(editStatus){
+            await dispatch(editPerson(data));
+            await dataReset();
+        }else{
+            await dispatch(addPerson(data));
+            await dataReset();
+        }
     }
     useEffect(() => {
         document.title = "Data form";
@@ -84,6 +89,7 @@ export const MianForm = () => {
                 personOneName,
                 credenceLocation,
                 credenceDate,
+                _id
             } = presentPerson
             setData({
                 petitionNo,
@@ -102,6 +108,7 @@ export const MianForm = () => {
                 personOneName,
                 credenceLocation,
                 credenceDate,
+                _id
             })
         }
     }, [document.title])
@@ -261,7 +268,3 @@ export const MianForm = () => {
     )
 }
 export default MianForm;
-/* <PDFDownloadLink document={<PageOne data={data}/>} className="download-button" fileName = "Form_106.pdf">
-                {({ loading }) => {
-                    return loading ? 'Loading document...' : 'Download now !';
-                }}</PDFDownloadLink> */
