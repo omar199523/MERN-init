@@ -1,14 +1,20 @@
 import  {useState,useEffect} from "react";
+import {useDispatch} from 'react-redux';
 import ShowPerson from "../../componants/ShowPerson"
 import ShowUser from "../../componants/ShowUser"
+import {getPersons} from "../../store/action/parsonData"
+import {getUsers} from "../../store/action/UserAction"
 import {H2,} from "../../componants/Typograph"
 import './style.css'
 
 const AdminPage =()=>{
     const [user, setUser] = useState(false)
     const [person, setPerson] = useState(true)
+    const dispatch = useDispatch()
     useEffect(()=>{
         document.title ="Admin Page"
+         dispatch(getPersons())
+        dispatch(getUsers())
     },[])
     return (
         <div className="container admin-page">

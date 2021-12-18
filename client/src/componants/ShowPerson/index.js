@@ -1,19 +1,15 @@
-import React ,{useEffect} from 'react'
-import {useDispatch,useSelector} from 'react-redux';
-import {getPersons} from "../../store/action/parsonData"
-import {getUsers} from "../../store/action/UserAction"
+// import React ,{useEffect} from 'react'
+import {useSelector} from 'react-redux';
+
 import {P1} from '../Typograph';
 import OnePerson from '../OnePerson';
 
 import './style.css';
 const ShowPerson = () => {
-    const dispatch = useDispatch();
+    // const dispatch = useDispatch();
     const {persons} = useSelector(state => state.persons)
     const {users} = useSelector(state => state.users)
-    useEffect(()=>{
-        dispatch(getPersons())
-        dispatch(getUsers())
-    },[])
+    
     return (
         <div className="all-persons">
             <div className ="title-person">
@@ -25,7 +21,7 @@ const ShowPerson = () => {
                 <P1 className="title-aciton">Action</P1>
             </div>
             {persons.map((person) => {
-                const user = users.find(({_id})=>person.userAddId ===_id).name
+                const user = users.find(({_id})=>person.userAddId ===_id)
                 return (<OnePerson person={person} userAdded = {user}/>)
                 })}
         </div>

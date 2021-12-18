@@ -9,6 +9,7 @@ import "./style.css"
 export const MianForm = () => {
     const dispatch = useDispatch()
     const {user} = useSelector(state => state.auth)
+    const {presentPerson,editStatus} = useSelector(state => state.persons)
     const [data,setData] =useState({
 		petitionNo:String,
 		deceasedName:String,
@@ -58,12 +59,51 @@ export const MianForm = () => {
       };
     const handleOnSubmit = async(e)=>{
         e.preventDefault();
-        await dispatch(addPerson(data)) 
+        await dispatch(addPerson(data));
         await dataReset();
     }
     useEffect(() => {
         document.title = "Data form";
         setData({...data,userAddId:user._id})
+        console.log(editStatus)
+        if(editStatus){
+            const {
+                petitionNo,
+                deceasedName,
+                deceasedAddress,
+                deceasedOccupation,
+                personName,
+                personReligion,
+                personIntionality,
+                personAge,
+                personAddress,
+                throwDate,
+                throwLanguage,
+                throwAdditioan,
+                believe,
+                personOneName,
+                credenceLocation,
+                credenceDate,
+            } = presentPerson
+            setData({
+                petitionNo,
+                deceasedName,
+                deceasedAddress,
+                deceasedOccupation,
+                personName,
+                personReligion,
+                personIntionality,
+                personAge,
+                personAddress,
+                throwDate,
+                throwLanguage,
+                throwAdditioan,
+                believe,
+                personOneName,
+                credenceLocation,
+                credenceDate,
+            })
+        }
     }, [document.title])
     const {
         petitionNo,
@@ -212,7 +252,7 @@ export const MianForm = () => {
                 />
             </fieldset>
             <fieldset className= "but-cont">
-            <button type= "submit">Add Perosn</button>
+            {(editStatus)?(<button type= "submit">Edit Perosn</button>):(<button type= "submit">Add Perosn</button>)}
 
             
             </fieldset>

@@ -1,9 +1,10 @@
 
-import { GET_PERSON ,ADD_PERSON,DELET_PERSON, PERSON_LOADING,PRESENT_PERSON} from '../action/types';
+import { GET_PERSON ,ADD_PERSON,DELET_PERSON, PERSON_LOADING,PRESENT_PERSON,EDIT_PERSON} from '../action/types';
 
 const  initialState ={
      persons:[],
      loading:false,
+     editStatus:false,
      presentPerson:{}
  }
 
@@ -32,6 +33,13 @@ const  initialState ={
                  ...state,
                  presentPerson:action.payload
              }
+        case EDIT_PERSON:
+            console.log(action.payload)
+            return {
+                ...state,
+                editStatus:action.payload.editStatus,
+                presentPerson:action.payload.person
+            }
         case PERSON_LOADING:
             return{
                 ...state,
