@@ -1,0 +1,14 @@
+label{
+    display: flex;
+    flex-direction: row-reverse;
+    justify-content: space-between;
+    align-items: center;
+    width: 40%;
+    margin: 10px 10px 0px 0px;
+}
+select{
+    width: 53%;
+    border: .5px solid #63918e;
+    border-radius:16px;
+    padding: 7px;
+}

@@ -13,7 +13,6 @@ const ShowPerson = () => {
         if(isAuthenticed){
             dispatch(getPersons(user.name,user._id))
         }
-        console.log(persons)
     },[])
     
     return (

@@ -53,7 +53,6 @@ export const MianForm = () => {
         })
     }
     const handleInputChange = (event) => {
-        console.log(event)
         const { target } = event;
         const value = target.type === 'checkbox' ? target.checked : target.value;
         const { name } = target;
@@ -72,7 +71,6 @@ export const MianForm = () => {
     useEffect(() => {
         document.title = "Data form";
         setData({...data,userAddId:user._id,userAddName:user.name})
-        console.log(editStatus)
         if(editStatus){
             const {
                 petitionNo,

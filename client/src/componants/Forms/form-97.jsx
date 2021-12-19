@@ -38,19 +38,19 @@ const Quixote3 = ({person}) =>{
           <Text style={styles.header}> Form No. 97 </Text>
           <Text style={styles.header}> IN THE HIGH COURT OF JUDICATURE AT BOMBAY </Text>
           <Text style={styles.header}> TESTAMENTARY AND INTESTATE JURISDICTION </Text>
-          <Text style={styles.header}> PETITION No .......... of ..........</Text>
+          <Text style={styles.header}> PETITION No {petitionNo} of {thisYear}</Text>
           
-          <Text style={styles.title}>Petition for probate of last will and testament of .......... </Text>
-          <Text style={styles.title}>resident of .................................................. </Text>
-          <Text style={styles.title}>having occupation of .................... Deceased. </Text>
-          <Text style={styles.title}>.................... Petitioner.</Text>
+          <Text style={styles.title}>Petition for probate of last will and testament of {deceasedName} </Text>
+          <Text style={styles.title}>resident of {deceasedAddress} </Text>
+          <Text style={styles.title}>having occupation of {deceasedOccupation} Deceased. </Text>
+          <Text style={styles.title}>{personName} Petitioner.</Text>
           <Text style={styles.title}> THE PETITION OF THE PETITIONER ABOVBNAMED </Text>
           <Text style={styles.title}> TO THE HON'BLE THECHIEF JUSTICE AND JUDGES OF THE HIGH COURT </Text>
 
 
           <Text style={styles.text}>
           HEREWITH:-
-          1. That the above named .................  died at .......... on or about the .....th day ....... of ........ 2018. 
+          1. That the above named {deceasedName}  died at {days[newThrowDate.getDay()]}  {newThrowDate.getDate()}{nth(newThrowDate.getDate())} on or about the .....th day ....... of ........ 2018. 
             Hereto annexed and marked Exhibit “A” is the copy of the death certificate.
           </Text>
           <Text style={styles.text}>

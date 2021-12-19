@@ -1,6 +1,6 @@
 import React ,{ useEffect,useState}from 'react'
 import {H5,H3} from '../../componants/Typograph';
-import Input from '../../componants/Input'
+import Select from '../../componants/Select';
 import { useSelector ,useDispatch} from 'react-redux';
 import { push } from 'connected-react-router';
 import { openPersonNum } from '../../store/action/parsonData';
@@ -8,11 +8,14 @@ import './style.css'
 const OpenDataPage = (person) => {
     const dispatch = useDispatch()
     const {presentPerson} = useSelector(state => state.persons);
-    const [formNum,setFormNum] =useState("102")
+    const [formNum,setFormNum] =useState("")
     const handleOpen = async ()=>{
-        console.log(formNum)
         await dispatch(openPersonNum(formNum))
         await dispatch(push('/pdfviewer'));
+    }
+    const handleOnCheange =(e)=>{
+        console.log(e.target.value)
+        setFormNum(e.target.value)
     }
     const {
         petitionNo,
@@ -52,9 +55,10 @@ const OpenDataPage = (person) => {
             <H5>believe <span>{believe}</span></H5>
             <H5>credence Location <span>{credenceLocation}</span></H5>
             <H5>credence Date <span>{credenceDate}</span></H5>
-            <select value={formNum} onChange={(e)=>{setFormNum(e.target.value)}}>
-                <option value ="102">form no.102</option>
-                <option value ="97">form no.97</option>
+            <select value={formNum}  onChange={handleOnCheange}>
+            <option value="">choise option</option>
+                <option value="97">Form No. 97</option>
+                <option value="102">Form No. 102</option>
             </select>
             <button on onClick={handleOpen}>open</button>
 

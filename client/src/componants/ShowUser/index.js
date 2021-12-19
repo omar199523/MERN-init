@@ -22,7 +22,7 @@ const ShowUser = () => {
                 <H5 className="title-date-added">Date</H5>
                 <H5 className="title-action">Aciton</H5>
             </div>
-            {users.map((user,number) => (<OneUser user={user} number ={number +1}/>))}
+            {users.map((user,number) => (<OneUser user={user} number ={number +1} key={user._id}/>))}
         </div>
     )
 }
