@@ -4,6 +4,7 @@ export const DELET_PERSON ="DELET_PERSON";
 export const PERSON_LOADING ="PERSON_LOADING";
 export const PRESENT_PERSON ="PRESENT_PERSON";
 export const EDIT_PERSON ="EDIT_PERSON";
+export const OPEN_PEROSN_NUM ="OPEN_PEROSN_NUM";
 
 
 export const USER_LOADING ="USER_LOADING";

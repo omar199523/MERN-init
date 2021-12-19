@@ -1,11 +1,12 @@
 
-import { GET_PERSON ,ADD_PERSON,DELET_PERSON, PERSON_LOADING,PRESENT_PERSON,EDIT_PERSON} from '../action/types';
+import { GET_PERSON ,ADD_PERSON,DELET_PERSON, PERSON_LOADING,PRESENT_PERSON,EDIT_PERSON,OPEN_PEROSN_NUM} from '../action/types';
 
 const  initialState ={
      persons:[],
      loading:false,
      editStatus:false,
-     presentPerson:{}
+     presentPerson:{},
+     openPersonNum:""
  }
 
  // eslint-disable-next-line import/no-anonymous-default-export
@@ -34,11 +35,16 @@ const  initialState ={
                  presentPerson:action.payload
              }
         case EDIT_PERSON:
-            console.log(action.payload)
+            
             return {
                 ...state,
                 editStatus:action.payload.editStatus,
                 presentPerson:action.payload.person
+            }
+        case OPEN_PEROSN_NUM:
+            return {
+                ...state,
+                openPersonNum:action.payload
             }
         case PERSON_LOADING:
             return{

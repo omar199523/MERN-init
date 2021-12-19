@@ -1,4 +1,4 @@
-import { GET_PERSON ,ADD_PERSON,DELET_PERSON ,PERSON_LOADING,PRESENT_PERSON,EDIT_PERSON} from "./types";
+import { GET_PERSON ,ADD_PERSON,DELET_PERSON ,PERSON_LOADING,PRESENT_PERSON,EDIT_PERSON,OPEN_PEROSN_NUM} from "./types";
 import {tokenConfig} from './authAction';
 import { returnErrors } from "./errorAction";
 import axios from 'axios'
@@ -56,6 +56,12 @@ export const presentPerson=(person)=>{
     return{
         type:PRESENT_PERSON,
         payload:person
+    }
+}
+export const openPersonNum=(Num)=>{
+    return{
+        type:OPEN_PEROSN_NUM,
+        payload:Num
     }
 }
 export const openEditPerson=(person)=>{

@@ -28,8 +28,7 @@ const Header = ({setDarckMode ,DarckMode}) => {
                         </>
                      ):(
                         <>
-                            {(auth.user.email === "admin@info.in")?(<li className="nac-bar-icon"><a href="/AdminPage">Admin</a></li>):null}
-                            <li className="nac-bar-icon"><a href="/showPerson">Show My Data</a></li>
+                            {(auth.user.email === "admin@info.in")?(<li className="nac-bar-icon"><a href="/AdminPage">Admin</a></li>):(<li className="nac-bar-icon"><a href="/showPerson">Show My Data</a></li>)}
                             <li className="nac-bar-icon"><a href="/mainForm">Add Person</a></li>
                             <li className="button sign-up"><a  href ="#" onClick={()=> dispatch(logout())}>LogOut</a></li>
                         </>    

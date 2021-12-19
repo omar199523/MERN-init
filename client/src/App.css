@@ -10,8 +10,8 @@ html {
 }
 .darck-mode {
   --backgroundColor: #22343d;
-  --HederFontColor: #fff;
-  --FontColor: #fff;
+  --HederFontColor: #22343d;
+  --FontColor: #22343d;
   max-width: 100%;
 }
 * {

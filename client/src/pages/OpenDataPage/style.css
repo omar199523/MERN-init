@@ -1,0 +1,18 @@
+.data-cont{
+    margin: 10em auto 0em !important;
+}
+.data-cont *{
+    flex: 2 2 500px;
+    padding: 1em;
+    color: #22343d;
+}
+
+.data-cont H3{
+    flex: 1 1 800px;
+}
+.data-cont h5 > span{
+    color: #123647;
+}
+.data-cont button{
+    align-self: center;
+}

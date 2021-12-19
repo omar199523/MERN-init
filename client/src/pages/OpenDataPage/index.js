@@ -1,11 +1,19 @@
 import React ,{ useEffect,useState}from 'react'
-import {H5} from '../../componants/Typograph';
+import {H5,H3} from '../../componants/Typograph';
 import Input from '../../componants/Input'
-import { useSelector } from 'react-redux';
+import { useSelector ,useDispatch} from 'react-redux';
+import { push } from 'connected-react-router';
+import { openPersonNum } from '../../store/action/parsonData';
+import './style.css'
 const OpenDataPage = (person) => {
+    const dispatch = useDispatch()
     const {presentPerson} = useSelector(state => state.persons);
-    const [formNum,setFormNum] =useState("")
-    
+    const [formNum,setFormNum] =useState("102")
+    const handleOpen = async ()=>{
+        console.log(formNum)
+        await dispatch(openPersonNum(formNum))
+        await dispatch(push('/pdfviewer'));
+    }
     const {
         petitionNo,
         deceasedName,
@@ -25,7 +33,8 @@ const OpenDataPage = (person) => {
         credenceDate,
     } = presentPerson
     return (
-        <div className='data-cont'>  
+        <div className='data-cont container'>  
+            <H3>My Data</H3>
             <H5>Petition No <span>{petitionNo}</span></H5>
             <H5>deceased Name <span>{ deceasedName}</span></H5>
             <H5>deceased Address <span>{deceasedAddress}</span></H5>
@@ -47,7 +56,7 @@ const OpenDataPage = (person) => {
                 <option value ="102">form no.102</option>
                 <option value ="97">form no.97</option>
             </select>
-            <button on onClick={()=>{}}></button>
+            <button on onClick={handleOpen}>open</button>
 
         </div>
     )

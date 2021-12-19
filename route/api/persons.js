@@ -37,11 +37,13 @@ router.post('/add',auth,(req,res)=>{
 //  @route Edit api/persons/edit
 // @ desc Edit a post
 // @access private
-router.post('/edit',authAdmin,(req,res)=>{
+router.post('/edit',auth,async (req,res)=>{
     // const person = Persons.findOne({_id:req.body._id});
     // console.log(person)
     const {_id} = req.body;
-    Persons.findOneAndUpdate({_id},{...req.body})
+    Persons.findOneAndUpdate({_id},{...req.body},{returnOriginal: false})
+    .then(data => res.json(data))
+    .catch((err)=> res.status(404).json({succsss:false}))
 }) 
 
 

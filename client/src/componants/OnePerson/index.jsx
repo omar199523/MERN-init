@@ -1,6 +1,9 @@
 import React from 'react';
 import { useDispatch } from 'react-redux';
 import {P1} from '../Typograph';
+import { BiEdit ,BiEnvelopeOpen} from "react-icons/bi";
+import { AiOutlineDelete} from "react-icons/ai";
+import { FaBeer } from 'react-icons/fa';
 import {deletPerson,presentPerson,openEditPerson} from '../../store/action/parsonData';
 import { push } from 'connected-react-router';
 
@@ -16,7 +19,7 @@ const OnePerson = ({person}) => {
 		} =person;
     const openPdfView =async()=>{
         await dispatch(presentPerson(person));
-        await dispatch(push('/pdfviewer'));
+        await dispatch(push('/openDataPage'));
     }
     const handleEditPerson =async ()=>{
         await dispatch(openEditPerson(person));
@@ -30,7 +33,11 @@ const OnePerson = ({person}) => {
             <P1 className="person-name">{personName}</P1>
             <P1 className="date-added">{handelDateAdded}</P1>
             <P1 className="user-added">{userAddedName}</P1>
-            <button onClick={()=>{handleEditPerson()}} className="one-action">action</button>
+            <P1  className="one-action">
+                <BiEdit onClick={()=>{handleEditPerson()}}/>
+                <AiOutlineDelete onClick={()=>{openPdfView()}}/>
+                <BiEnvelopeOpen onClick={()=>{dispatch(deletPerson(_id))}}/>
+            </P1>
             {/* 
             <button className="open-button" onClick={openPdfView} >Open</button> */}
             {/* <button className="deleat-button" onClick={()=>{dispatch(deletPerson(_id))}}>Deleat</button> */}

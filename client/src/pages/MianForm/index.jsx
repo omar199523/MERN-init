@@ -91,6 +91,8 @@ export const MianForm = () => {
                 personOneName,
                 credenceLocation,
                 credenceDate,
+                userAddId,
+                userAddName,
                 _id
             } = presentPerson
             setData({
@@ -110,6 +112,8 @@ export const MianForm = () => {
                 personOneName,
                 credenceLocation,
                 credenceDate,
+                userAddId,
+                userAddName,
                 _id
             })
         }
@@ -131,6 +135,8 @@ export const MianForm = () => {
 		personOneName,
 		credenceLocation,
 		credenceDate,
+        userAddId,
+        userAddName,
     } = data
     return (
         <form onSubmit={handleOnSubmit}  className="main-form container">
