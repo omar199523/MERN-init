@@ -35,12 +35,10 @@ const OnePerson = ({person}) => {
             <P1 className="user-added">{userAddedName}</P1>
             <P1  className="one-action">
                 <BiEdit onClick={()=>{handleEditPerson()}}/>
-                <AiOutlineDelete onClick={()=>{openPdfView()}}/>
-                <BiEnvelopeOpen onClick={()=>{dispatch(deletPerson(_id))}}/>
+                <BiEnvelopeOpen onClick={()=>{openPdfView()}}/>
+                <AiOutlineDelete onClick={()=>{dispatch(deletPerson(_id))}}/>
             </P1>
-            {/* 
-            <button className="open-button" onClick={openPdfView} >Open</button> */}
-            {/* <button className="deleat-button" onClick={()=>{dispatch(deletPerson(_id))}}>Deleat</button> */}
+            
         </div>
     )
 }
