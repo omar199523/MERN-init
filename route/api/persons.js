@@ -17,6 +17,12 @@ router.get('/',authAdmin,(req,res)=>{
     .then((data)=>res.json(data))
     .catch(err=>res.status(404).json({msg:false}));
 })
+router.get('/myData/:id',auth,(req,res)=>{
+    Persons.find({userAddedId:req.params.id})
+    .sort({date: -1})
+    .then((data)=>res.json(data))
+    .catch(err=>res.status(404).json({msg:false}));
+})
 
 //  @route post api/persons/add
 // @ desc creat a post
@@ -32,16 +38,13 @@ router.post('/add',auth,(req,res)=>{
 // @ desc Edit a post
 // @access private
 router.post('/edit',authAdmin,(req,res)=>{
-    const {_id }= req.body;
-    Persons.updateOne(
-        {_id},
-        {
-            $set : {...req.body},
-            $currentDate:{dataAdded:true}
-        })
-        
-    
+    // const person = Persons.findOne({_id:req.body._id});
+    // console.log(person)
+    const {_id} = req.body;
+    Persons.findOneAndUpdate({_id},{...req.body})
 }) 
+
+
 //  @route delete api/persons/:id
 // @ desc delete a post
 // @access private

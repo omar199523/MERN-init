@@ -13,7 +13,6 @@ const AdminPage =()=>{
     const dispatch = useDispatch()
     useEffect(()=>{
         document.title ="Admin Page"
-         dispatch(getPersons())
         dispatch(getUsers())
     },[])
     return (

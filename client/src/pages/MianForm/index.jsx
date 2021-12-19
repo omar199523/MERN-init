@@ -27,7 +27,8 @@ export const MianForm = () => {
 		personOneName:String,
 		credenceLocation:String,
 		credenceDate:Date,
-        userAddId:String
+        userAddId:String,
+        userAddName:String
 	});
     const dataReset =() =>{
         setData({
@@ -47,7 +48,8 @@ export const MianForm = () => {
             personOneName:"",
             credenceLocation:"",
             credenceDate:"",
-            userAddId:""
+            userAddId:"",
+            userAddName:""
         })
     }
     const handleInputChange = (event) => {
@@ -69,7 +71,7 @@ export const MianForm = () => {
     }
     useEffect(() => {
         document.title = "Data form";
-        setData({...data,userAddId:user._id})
+        setData({...data,userAddId:user._id,userAddName:user.name})
         console.log(editStatus)
         if(editStatus){
             const {

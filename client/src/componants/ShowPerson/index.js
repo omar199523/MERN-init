@@ -1,17 +1,23 @@
-// import React ,{useEffect} from 'react'
-import {useSelector} from 'react-redux';
-
+import React ,{useEffect ,useState} from 'react'
+import {useSelector,useDispatch} from 'react-redux';
+import {getPersons} from "../../store/action/parsonData"
 import {P1} from '../Typograph';
 import OnePerson from '../OnePerson';
 
 import './style.css';
 const ShowPerson = () => {
-    // const dispatch = useDispatch();
+    const dispatch = useDispatch();
     const {persons} = useSelector(state => state.persons)
-    const {users} = useSelector(state => state.users)
+    const {isAuthenticed,user} = useSelector(state => state.auth)
+    useEffect( ()=> {
+        if(isAuthenticed){
+            dispatch(getPersons(user.name,user._id))
+        }
+        console.log(persons)
+    },[])
     
     return (
-        <div className="all-persons">
+        <div className={(user.name !== "Admin")?"marg-top container":"all-persons"}>
             <div className ="title-person">
                 <P1 className="title-petition-no">petition No</P1>
                 <P1 className="title-deceased-name">deceased Name</P1>
@@ -21,8 +27,7 @@ const ShowPerson = () => {
                 <P1 className="title-aciton">Action</P1>
             </div>
             {persons.map((person) => {
-                const user = users.find(({_id})=>person.userAddId ===_id)
-                return (<OnePerson person={person} userAdded = {user}/>)
+                return (<OnePerson person={person} key={person._id}/>)
                 })}
         </div>
     )

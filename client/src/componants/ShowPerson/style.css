@@ -2,7 +2,11 @@
   flex-direction: column;
   align-items: stretch !important;
 }
-
+.marg-top{
+  flex-direction: column;
+  align-items: stretch !important;
+  margin: 8em auto !important;
+}
 .title-person {
   display: flex;
   justify-content: space-between;
@@ -15,6 +19,11 @@
   border-right: 0.7px solid #fff
 
 }
+/* .marg-top > *{
+  text-align: center;
+  color: #fff;
+  border-right: 0.7px solid #fff
+} */
 .title-petition-no{
   flex: 1 1 110px;
 }

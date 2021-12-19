@@ -3,16 +3,27 @@ import {tokenConfig} from './authAction';
 import { returnErrors } from "./errorAction";
 import axios from 'axios'
 
-export const getPersons =()=>(dispatch,getState)=>{
+export const getPersons =(userName,userId)=>(dispatch,getState)=>{
     dispatch(personIsLoading());
-    axios.get('/api/persons/',tokenConfig(getState)).then(res=>{
-        dispatch({
-            type:GET_PERSON,
-            payload:res.data,
+    if(userName==="Admin"){
+        axios.get('/api/persons/',tokenConfig(getState)).then(res=>{
+            dispatch({
+                type:GET_PERSON,
+                payload:res.data,
+            })
+        }).catch(err=>{
+             dispatch(returnErrors( err.response.data.msg , err.response.status));
         })
-    }).catch(err=>{
-         dispatch(returnErrors( err.response.data.msg , err.response.status));
-    })
+    }else{
+        axios.get(`/api/persons/myData/${userId}`,tokenConfig(getState)).then(res=>{
+            dispatch({
+                type:GET_PERSON,
+                payload:res.data,
+            })
+        }).catch(err=>{
+             dispatch(returnErrors( err.response.data.msg , err.response.status));
+        })
+    }
 }
 export const addPerson =(person)=>(dispatch,getState)=>{
     dispatch(personIsLoading());
