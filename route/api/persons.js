@@ -32,52 +32,14 @@ router.post('/add',auth,(req,res)=>{
 // @ desc Edit a post
 // @access private
 router.post('/edit',authAdmin,(req,res)=>{
-    const {
-        _id,
-        petitionNo,
-         deceasedName,
-         deceasedAddress,
-         deceasedOccupation,
-         personName,
-         personReligion,
-         personIntionality,
-         personAge,
-         personAddress,
-         throwDate,
-         throwLanguage,
-         throwAdditioan,
-         believe,
-         personOneName,
-         credenceLocation,
-         credenceDate,
-         dataAdded,
-         userAddId,
-    } = req.body;
+    const {_id }= req.body;
     Persons.updateOne(
         {_id},
         {
-            $set : {petitionNo,
-                deceasedName,
-                deceasedAddress,
-                deceasedOccupation,
-                personName,
-                personReligion,
-                personIntionality,
-                personAge,
-                personAddress,
-                throwDate,
-                throwLanguage,
-                throwAdditioan,
-                believe,
-                personOneName,
-                credenceLocation,
-                credenceDate,
-                dataAdded,
-                userAddId,},
+            $set : {...req.body},
             $currentDate:{dataAdded:true}
-        }
-        )
-        persons.findOne({_id}).then((p)=>console.log(p))
+        })
+        
     
 }) 
 //  @route delete api/persons/:id
