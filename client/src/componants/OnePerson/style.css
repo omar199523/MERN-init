@@ -8,27 +8,27 @@
   color: #1F2E35;
   border: 0.7px solid #f00f08;
 }
-.petition-no{
+.one-person > .petition-no{
   flex: 1 1 110px;
 }
-.deceased-name{
+.one-person > .deceased-name{
     flex: 2 2 180px;
 }
-.person-name{
+.one-person > .person-name{
     flex:2 2 180px
 }
-.date-added{
+.one-person > .date-added{
   flex:1 1 90px
 }
-.user-added{
+.one-person > .user-added{
   flex:1 1 90px
 }
-.one-action{
+.one-person > .one-action{
   flex:1 1 80px;
   display: flex;
   justify-content: space-around;
 }
-.one-action > p >svg{
+.one-person .one-action > p >svg{
   color: #f00f08;
   background-color:#1F2E35
 }
