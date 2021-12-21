@@ -32,7 +32,8 @@ router.post ('/',(req,res)=>{
         jwt.sign(
             {id:user.id,
             name:user.name,
-            email:user.email},
+            email:user.email,
+            userAdress:user.userAdress},
             config.get("jwtSecret"),
             {expiresIn :3600},
             (err,token)=>{
@@ -42,7 +43,8 @@ router.post ('/',(req,res)=>{
                     user:{
                         id:user.id,
                         name:user.name,
-                        email:user.email
+                        email:user.email,
+                        userAdress:user.userAdress
                     }
                 })
 

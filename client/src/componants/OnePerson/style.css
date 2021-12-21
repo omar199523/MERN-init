@@ -2,7 +2,7 @@
   display: flex;
   justify-content: space-around;
 }
-.one-person *{
+.one-person > *{
   text-align: center;
   padding: 0.5em;
   color: #1F2E35;
@@ -27,4 +27,8 @@
   flex:1 1 80px;
   display: flex;
   justify-content: space-around;
+}
+.one-action > p >svg{
+  color: #f00f08;
+  background-color:#1F2E35
 }

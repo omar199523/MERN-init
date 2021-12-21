@@ -11,11 +11,13 @@ import {H2} from "../../componants/Typograph"
 const SignUp = ()=> {
     const {error }= useSelector(state => state)
     const { auth }= useSelector(state => state)
+    const { editStatus ,presentUser }= useSelector(state => state.users)
      const dispatch = useDispatch();
     const [signupData , setSignUpData] = useState({
         modal:false,
         completName:"",
         email:"",
+        userAddress:"",
         password:"",
         confirmPassword:"",
         msg:null
@@ -27,6 +29,21 @@ const SignUp = ()=> {
         if(error.id ==="REGISTER_FAIL"){
             setSignUpData({...signupData,msg:error.msg.msg})
         }
+        if(editStatus){
+            const {
+                completName,
+                 email,
+                userAddress,
+                password,
+            } = presentUser
+            setSignUpData({
+                completName,
+                email,
+                userAddress,
+                password,
+                confirmPassword:password
+            })
+        }
         
     }, [error.id, error.msg.msg])
     const handleOnChange = (event) => {
@@ -37,14 +54,15 @@ const SignUp = ()=> {
       };
       const handleOnSubmit=(e)=>{
         e.preventDefault();
-        const {completName,password,confirmPassword,email} =signupData
+        const {completName,userAddress,password,confirmPassword,email} =signupData
         if(password ===confirmPassword){
-            dispatch(register({name:completName,email,password}))
+            dispatch(register({name:completName,userAddress,email,password}))
         }else if(password !==confirmPassword){
             setSignUpData({...signupData,msg:"Password and comfirm password must be equal"})
         }
         
       }
+      
       const handleError = ()=>{
           if(error.status && signupData.msg){
               return (<output className="error">{signupData.msg}</output>)
@@ -66,6 +84,11 @@ const SignUp = ()=> {
                 Email
                 <input id="email" type="email" name ="email" value ={signupData.email} onChange= {handleOnChange}/>
             </label>
+            <label htmlFor ="userAddress">
+                user Adress
+                <input id="userAddress" placeholder ="Address - city - state" type="userAddress" name ="userAddress" value ={signupData.userAddress} onChange= {handleOnChange}/>
+            </label>
+        
             <label htmlFor ="Password">
                 Password
                 <input id="Password" type="password" name ="password" value ={signupData.password} onChange= {handleOnChange}/>
@@ -74,7 +97,7 @@ const SignUp = ()=> {
                 Confirm Password
                 <input id="ConfirmPassword" type="password" name ="confirmPassword" value ={signupData.confirmPassword} onChange= {handleOnChange}/>
             </label>
-            <output>if you not acount <a href='/login'>Create new acount</a></output>
+            
             <button type="submit">Sign Up</button>
             
         </form>

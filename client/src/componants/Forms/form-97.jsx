@@ -1,21 +1,15 @@
 import React from 'react';
 import { Document, Page, Text, StyleSheet } from '@react-pdf/renderer';
 
-const Quixote3 = ({person}) =>{
+const Quixote3 = ({person,user}) =>{
+  
     const {petitionNo,
       deceasedName,
       deceasedAddress,
       deceasedOccupation,
       personName,
-      personReligion,
-      personIntionality,
-      personAge,
-          personAddress,
       throwDate,
-      throwLanguage,
-      throwAdditioan,
-          believe,
-      personOneName,
+      believe,
       credenceLocation,
       credenceDate,
     }=person;
@@ -23,7 +17,7 @@ const Quixote3 = ({person}) =>{
     const days =["Sunday","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"]
     const newThrowDate =new Date(throwDate);
     const newCredenceDate=new Date(credenceDate);
-    const thisYear = new Date().getFullYear();
+    const thisDate = new Date();
     const nth =(n)=>{
       switch(n){
         case 1:  return "st";
@@ -32,13 +26,15 @@ const Quixote3 = ({person}) =>{
           default: return "th";
       }
     }
+    const [Adress,city,state] = deceasedAddress.split('-')
+    const [,usercity,] = user.userAddress.split('-')
     return(
       <Document style={styles.body}>
         <Page style={styles.body}>
           <Text style={styles.header}> Form No. 97 </Text>
           <Text style={styles.header}> IN THE HIGH COURT OF JUDICATURE AT BOMBAY </Text>
           <Text style={styles.header}> TESTAMENTARY AND INTESTATE JURISDICTION </Text>
-          <Text style={styles.header}> PETITION No {petitionNo} of {thisYear}</Text>
+          <Text style={styles.header}> PETITION No {petitionNo} of {newThrowDate.getFullYear()}</Text>
           
           <Text style={styles.title}>Petition for probate of last will and testament of {deceasedName} </Text>
           <Text style={styles.title}>resident of {deceasedAddress} </Text>
@@ -50,12 +46,11 @@ const Quixote3 = ({person}) =>{
 
           <Text style={styles.text}>
           HEREWITH:-
-          1. That the above named {deceasedName}  died at {days[newThrowDate.getDay()]}  {newThrowDate.getDate()}{nth(newThrowDate.getDate())} on or about the .....th day ....... of ........ 2018. 
+          1. That the above named {deceasedName}  died at {city}   on or about the {newThrowDate.getDate()}{nth(newThrowDate.getDate())} day {days[newThrowDate.getDay()]} of {newThrowDate.getFullYear()}. 
             Hereto annexed and marked Exhibit “A” is the copy of the death certificate.
           </Text>
           <Text style={styles.text}>
-          2.	That the said deceased at the time of his death had a fixed place of abode at ................................
-          ................... and has left property within ................ and in the State of ...........  [and elsewhere in India.]
+          2.	That the said deceased at the time of his death had a fixed place of abode at {Adress} and has left property within {city} and in the State of {state}  [and elsewhere in India.]
           </Text>
           <Text style={styles.text}>
           3.	That the said deceased left writing, which is his last will and testament. The said writing, hereinafter referred 
@@ -63,7 +58,7 @@ const Quixote3 = ({person}) =>{
           of the Prothonotary and Senior Master. A copy of the said Will is hereto annexed and also marked as Exhibit “B”
           </Text>
           <Text style={styles.text}>
-          4.	That the said will was duly executed at ........... on the ....th day of ....... of .........
+          4.	That the said will was duly executed at {usercity} on the {thisDate.getDate()}{nth(thisDate.getDate())}  day of {days[thisDate.getDay()]} of {thisDate.getFullYear()}
           </Text>
           <Text style={styles.text}>
           5.	That the petitioner is the executor named in the said will.
@@ -85,27 +80,33 @@ const Quixote3 = ({person}) =>{
           <Text style={styles.text}>
           10.	That the said deceased left him surviving as his only heirs and next-of-kin according to Hindu Succession Law 
           the following persons, who are residing at the addresses set out against their respective names :-
-          [[[[[[[[[[[[[[Sr. No	Full Name	Address	Occupation	Relationship	Age]]]]]]]]]]]]]]]]]]]
+          [[[[[[[[[[[[[[Sr. No	Full Name	Address	Occupation	Relationship	Age]]]]]]]]]]]]]]]]
           </Text>
           <Text style={styles.text}>
           11.	That save and except the heirs mentioned herein above, there are no other heirs left by the deceased
+          </Text>
+          <Text style={styles.text}>
           12.	That no application has been made to any District Court or District delegate or to any other High Court for probate of 
           any will of the said deceased or for letters of administration with or without the will annexed to his property and credits
           (C).
+          </Text>
+          <Text style={styles.text}>
           13.	The petitioner prays that probate may be granted to her having effect throughout the State of Maharashtra and the Union
           of India.
-          14.	I, ........................., the petitioner above named do wear in the name of God that what is stared in 
+          </Text>
+          <Text style={styles.text}>
+          14.	I, {user.name} , the petitioner above named do wear in the name of God that what is stared in 
           paragraphs is true to my own knowledge and that what is stated in the remaining paragraphs is stated on information
           and belief and I believe the same to be true.
 
-          </Text>
-          <Text style={styles.text}>
-          [Sworn / Solemnly affirmed] at .....................	  ]
-          </Text>
-          <Text style={styles.text}>
-                this .....…. Day of ……………... 202  	] 
-          </Text>
-      
+        </Text>
+        <Text style={styles.text}>
+          {(believe)?` swaer in the name of God `:` solemnly affirm `} at {credenceLocation}	
+        </Text>
+        <Text style={styles.text}>
+               this {days[newCredenceDate.getDay()]} {newCredenceDate.getDate()}{nth(newCredenceDate.getDate())} Day of  {months[newCredenceDate.getMonth()]}  {newCredenceDate.getFullYear()}  	
+        </Text>
+  
           <Text style={styles.title}>................................................. </Text>
           <Text style={styles.title}>Before Me </Text>
 

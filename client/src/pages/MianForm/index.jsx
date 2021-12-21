@@ -133,8 +133,6 @@ export const MianForm = () => {
 		personOneName,
 		credenceLocation,
 		credenceDate,
-        userAddId,
-        userAddName,
     } = data
     return (
         <form onSubmit={handleOnSubmit}  className="main-form container">
@@ -158,7 +156,7 @@ export const MianForm = () => {
                 name="deceasedName"
                 />
                 <Input type ="text"
-                placeholder ="Deceased Address"
+                placeholder ="Address - city - state"
                 label ="Deceased Address"
                 value={deceasedAddress}
                 handleInputChange={handleInputChange}

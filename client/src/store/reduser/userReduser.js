@@ -1,7 +1,9 @@
-import {GET_USERS } from '../action/types'
+import {GET_USERS ,EDIT_USER} from '../action/types'
 
 const initialState ={
-    users:[]
+    users:[],
+    editStatus:false,
+    presentUser:{}
 }
 
 // eslint-disable-next-line import/no-anonymous-default-export
@@ -14,7 +16,12 @@ export default function (state =initialState,action){
                  users:action.payload,
                  loading:false
              }
-        
+        case EDIT_USER:
+                return {
+                    ...state,
+                    editStatus:action.payload.editStatus,
+                    presentUser:action.payload.user
+                }
         default:
             return{
                 ...state

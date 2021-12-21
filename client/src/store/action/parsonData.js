@@ -65,7 +65,7 @@ export const openPersonNum=(Num)=>{
     }
 }
 export const openEditPerson=(person)=>{
-    console.log(person)
+
     return{
         type:EDIT_PERSON,
         payload:{editStatus:true,person}

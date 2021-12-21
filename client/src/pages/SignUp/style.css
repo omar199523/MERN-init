@@ -43,13 +43,13 @@ output {
   padding: 0.6em;
   margin-top: 0.5em;
   border: 1px solid #ddd;
-  color: #fff !important;
+  color: #1F2E35 !important;
 }
 .signup-form > label > input:focus{
   padding: 0.6em ;
   margin-top: 0.5em ;
   /* border: 0.5px solid #ddd ; */
-  color: #fff ;
+  color: #1F2E35 ;
   
 }
 output > a{

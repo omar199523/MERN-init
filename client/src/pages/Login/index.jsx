@@ -58,6 +58,7 @@ const Login = ()=> {
                 Password
                 <input id="password" type="password" name ="password" value ={loginData.password} onChange= {handleOnChange}/>
             </label>
+            <output>if you not acount <a href='/signup'>Create new acount</a></output>
             <button type="submit">Log In</button>
             
         </form>

@@ -7,7 +7,7 @@ function Select({ value, handleInputChange, options, Name, label }) {
   return (
     <label htmlFor={Name}>
       {label}
-      <select value={value} onChange={handleInputChange} name={Name}>
+      <select value={value} onChange={handleInputChange} id={Name} name={Name}>
         {options.map((option, index) => (
           <option value={option} key={index}>
             {option}

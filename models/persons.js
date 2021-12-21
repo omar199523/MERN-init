@@ -75,6 +75,10 @@ const PersonSchema =new Schema({
     userAddId:{
         type:String,
         required:true
+    },
+    userAddName:{
+        type:String,
+        required:true
     }
 })
 module.exports = Person = mongoose.model("person",PersonSchema)

@@ -2,7 +2,7 @@ import React ,{useEffect} from 'react'
 import {useDispatch,useSelector} from 'react-redux';
 import {getUsers} from '../../store/action/UserAction'
 import {H5} from '../Typograph';
-import OnePerson from '../OnePerson'
+
 import OneUser from '../OneUser'
 
 import './style.css';

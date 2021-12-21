@@ -10,6 +10,8 @@ export const OPEN_PEROSN_NUM ="OPEN_PEROSN_NUM";
 export const USER_LOADING ="USER_LOADING";
 export const USER_LOADED ="USER_LOADED";
 export const GET_USERS ="GET_USERS";
+export const EDIT_USER ="EDIT_USER";
+
 export const AUTH_ERROR ="AUTH_ERROR";
 export const LOGIN_SUCCESS ="LOGIN_SUCCESS";
 export const LOGIN_FAIL ="LOGIN_FAIL";

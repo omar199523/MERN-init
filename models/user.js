@@ -14,6 +14,10 @@ const UserSchema = new Schema({
     password:{
         type:String,
         required:true
+    },
+    userAddress:{
+        type:String,
+        required:true
     }
     ,registar_date:{
         type:Date,

@@ -13,9 +13,9 @@ const Users = require('../../models/user')
 // @ desc Register new user
 // @access puplic
 router.post ('/',(req,res)=>{
-    const {name , email, password} = req.body;
+    const {name , email, password,userAddress} = req.body;
     //  simple validation
-    if(!name || !email || !password){
+    if(!name || !email || !password || !userAddress){
         return res.status(400).json({msg:"please enter all fields"})
     }
 
@@ -26,7 +26,8 @@ router.post ('/',(req,res)=>{
     const newUser =new User({
         name,
         email,
-        password
+        password,
+        userAddress
     })
     // create salt $ hach
     bcrypt.genSalt (10,(err,salt)=>{
@@ -38,7 +39,8 @@ router.post ('/',(req,res)=>{
                     jwt.sign(
                         {id:user.id,
                         name:user.name,
-                        email:user.email},
+                        email:user.email,
+                        userAddress:user.userAddress},
                         config.get("jwtSecret"),
                         {expiresIn :3600},
                         (err,token)=>{
@@ -48,7 +50,8 @@ router.post ('/',(req,res)=>{
                                 user:{
                                     id:user.id,
                                     name:user.name,
-                                    email:user.email
+                                    email:user.email,
+                                    userAddress:user.userAddress
                                 }
                             })
 
@@ -59,6 +62,12 @@ router.post ('/',(req,res)=>{
     })
 })
 
+// router.post('/edit',auth,async (req,res)=>{
+//     const {_id} = req.body;
+//     Users.findOneAndUpdate({_id},{...req.body},{returnOriginal: false})
+//     .then(data => res.json(data))
+//     .catch((err)=> res.status(404).json({succsss:false}))
+// }) 
 //  @route get api/user
 // @ desc get all user
 // @access puplic
