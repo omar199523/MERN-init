@@ -28,7 +28,12 @@
   display: flex;
   justify-content: space-around;
 }
-.one-person .one-action > p >svg{
-  color: #f00f08;
-  background-color:#1F2E35
+.one-person .one-action > .edit-icon {
+  color: #f08b18 !important;
+}
+.one-person .one-action > .open-icon {
+  color: #0d8d2d !important;
+}
+.one-person .one-action > .delete-icon {
+  color: #f03818 !important;
 }

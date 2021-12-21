@@ -35,9 +35,9 @@ const OnePerson = ({person}) => {
                 <P1 className="date-added">{handelDateAdded}</P1>
                 <P1 className="user-added">{userAddName}</P1>
                 <P1  className="one-action">
-                    <FaGithub onClick={()=>{handleEditPerson()}}/>
-                    < AiFillFolderOpen onClick={()=>{openPdfView()}}/>
-                    <AiOutlineDelete onClick={()=>{dispatch(deletPerson(_id))}}/>
+                    <FaGithub onClick={()=>{handleEditPerson()}} className='edit-icon'/>
+                    < AiFillFolderOpen onClick={()=>{openPdfView()}} className='open-icon'/>
+                    <AiOutlineDelete onClick={()=>{dispatch(deletPerson(_id))}} className='delete-icon'/>
                 </P1>
         </div>
     )
